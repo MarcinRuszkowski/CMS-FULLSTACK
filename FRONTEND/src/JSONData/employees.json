@@ -1,0 +1,86 @@
+{
+  "Jan Kowlaski": {
+    "id": 1,
+    "company": "PTWP ON-LINE",
+    "job": "programista",
+    "department": "IT",
+    "city": "Katowice"
+  },
+  "Katarzyna Nowak": {
+    "id": 2,
+    "company": "PTWP S.A.",
+    "job": "księgowość",
+    "department": "Księgowość",
+    "city": "Katowice"
+  },
+  "Jack Reacher": {
+    "id": 3,
+    "company": "PTWP S.A.",
+    "job": "kierownik",
+    "department": "IT",
+    "city": "Warszawa"
+  },
+  "Walter White": {
+    "id": 4,
+    "company": "PTWP S.A.",
+    "job": "HRowiec",
+    "department": "HR i kadry",
+    "city": "Warszawa"
+  },
+  "Jeffrey Dahmer": {
+    "id": 5,
+    "company": "PTWP S.A.",
+    "job": "programista",
+    "department": "IT",
+    "city": "Białystok"
+  },
+  "Thomas Shelby": {
+    "id": 6,
+    "company": "PTWP S.A.",
+    "job": "administrator",
+    "department": "Administracja",
+    "city": "Warszawa"
+  },
+  "Artur Shelby": {
+    "id": 7,
+    "company": "PTWP S.A.",
+    "job": "programista",
+    "department": "IT",
+    "city": "Katowice"
+  },
+  "Frank Murphy": {
+    "id": 8,
+    "company": "PTWP ON-LINE",
+    "job": "informatyk",
+    "department": "IT",
+    "city": "Białystok"
+  },
+  "Tom Hanks": {
+    "id": 9,
+    "company": "PTWP EVENT CENTER",
+    "job": "Specjalista ds. Eventów",
+    "department": "IT",
+    "city": "Katowice"
+  },
+  "Michael Scofield": {
+    "id": 10,
+    "company": "PTWP S.A.",
+    "job": "grafik",
+    "department": "Grafika",
+    "city": "Katowice"
+  },
+  "Hugh Hefner": {
+    "id": 11,
+    "company": "PTWP S.A.",
+    "job": "Dziennikarz",
+    "department": "Redakcja",
+    "city": "Białystok"
+  },
+  "Ekko Pies": {
+    "id": 12,
+    "company": "PTWP S.A.",
+    "job": "bramkarz",
+    "department": "Ochrona",
+    "city": "Katowice"
+  }
+}

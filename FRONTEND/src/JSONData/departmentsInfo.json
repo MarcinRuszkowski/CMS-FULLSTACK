@@ -1,0 +1,212 @@
+{
+  "1": {
+    "Dział Marketingu": [
+      {
+        "name": "Informacje",
+        "desc": "info marketing",
+        "address": {
+          "street": "Plac Sławika i Antalla 1",
+          "city": "Katowice",
+          "zipCode": "40 - 163",
+          "room": "3.26 Kostka A"
+        },
+        "departmentEmail": "dzial.marketingu@ptwp.pl"
+      },
+      {
+        "name": "Pracownicy",
+        "employees": {
+          "1": {
+            "name": "Tomasz Kowalski",
+            "email": "tomasz.kowlaski@ptwp.pl",
+            "phone": "32 333 33 33",
+            "city": "Katowice"
+          },
+          "2": {
+            "name": "Katarzyna Nowak",
+            "email": "katarzyna.nowak@ptwp.pl",
+            "phone": "32 222 33 33",
+            "city": "Białystok"
+          },
+          "3": {
+            "name": "Walter White",
+            "email": "walter.white@ptwp.pl",
+            "phone": "32 111 33 33",
+            "city": "Katowice"
+          }
+        }
+      },
+      {
+        "name": "Procedury działu",
+        "desc": "Jakieś Procedury "
+      }
+    ]
+  },
+  "2": {
+    "Dział IT": [
+      {
+        "name": "Informacje",
+        "desc": "info it",
+        "address": {
+          "street": "Plac Sławika i Antalla 1",
+          "city": "Katowice",
+          "zipCode": "40 - 163",
+          "room": "2.26 Kostka C"
+        },
+        "departmentEmail": "dzial.IT@ptwp.pl"
+      },
+      {
+        "name": "Pracownicy",
+        "employees": {
+          "1": {
+            "name": "Jan Kowalski",
+            "email": "jan.kowlaski@ptwp.pl",
+            "phone": "32 333 33 33",
+            "city": "Warszawa"
+          },
+          "2": {
+            "name": "Katarzyna Nowak",
+            "email": "katarzyna.nowak@ptwp.pl",
+            "phone": "32 222 33 33",
+            "city": "Katowice"
+          },
+          "3": {
+            "name": "Bogdan Boner",
+            "email": "bogdan.boner@ptwp.pl",
+            "phone": "32 111 33 33",
+            "city": "Katowice"
+          }
+        }
+      },
+      {
+        "name": "Procedury działu",
+        "desc": "Jakieś Procedury it"
+      }
+    ]
+  },
+  "3": {
+    "Dział Organizacji Eventów": [
+      {
+        "name": "Informacje",
+        "desc": "info DOE",
+        "address": {
+          "street": "Plac Sławika i Antalla 1",
+          "city": "New Orlean",
+          "zipCode": "40 - 163",
+          "room": "3.26 Kostka C"
+        },
+        "departmentEmail": "dzial.organizacjiEventow@ptwp.pl"
+      },
+      {
+        "name": "Pracownicy",
+        "employees": {
+          "1": {
+            "name": "Hector Salamanca",
+            "email": "hector.salamanca@ptwp.pl",
+            "phone": "32 333 33 33",
+            "city": "Katowice"
+          },
+          "2": {
+            "name": "Katarzyna Nowak",
+            "email": "katarzyna.nowak@ptwp.pl",
+            "phone": "32 222 33 33",
+            "city": "Chorzów"
+          },
+          "3": {
+            "name": "Jessie Pinkman",
+            "email": "jessie.pinkman@ptwp.pl",
+            "phone": "32 111 33 33",
+            "city": "Katowice"
+          }
+        }
+      },
+      {
+        "name": "Procedury działu",
+        "desc": "Jakieś Procedury DOE"
+      }
+    ]
+  },
+  "4": {
+    "Dział graficzny": [
+      {
+        "name": "Informacje",
+        "desc": "info graf",
+        "address": {
+          "street": "Plac Sławika i Antalla 1",
+          "city": "MEXICO city",
+          "zipCode": "40 - 163",
+          "room": "3.26 Kostka C"
+        },
+        "departmentEmail": "dzial.graficzny@ptwp.pl"
+      },
+      {
+        "name": "Pracownicy",
+        "employees": {
+          "1": {
+            "name": "Hector Salamanca",
+            "email": "hector.salamanca@ptwp.pl",
+            "phone": "32 333 33 33",
+            "city": "NY"
+          },
+          "2": {
+            "name": "Katarzyna Nowak",
+            "email": "katarzyna.nowak@ptwp.pl",
+            "phone": "32 222 33 33",
+            "city": "Katowice"
+          },
+          "3": {
+            "name": "Jessie Pinkman",
+            "email": "jessie.pinkman@ptwp.pl",
+            "phone": "32 111 33 33",
+            "city": "Katowice"
+          }
+        }
+      },
+      {
+        "name": "Procedury działu",
+        "desc": "Jakieś Procedury graf"
+      }
+    ]
+  },
+  "5": {
+    "Dział Wsparcia Portali": [
+      {
+        "name": "Informacje",
+        "desc": "info wsparcie",
+        "address": {
+          "street": "Plac Sławika i Antalla 1",
+          "city": "Chuj",
+          "zipCode": "40 - 163",
+          "room": "3.26 Kostka C"
+        },
+        "departmentEmail": "dzial.wsparciaPortali@ptwp.pl"
+      },
+      {
+        "name": "Pracownicy",
+        "employees": {
+          "1": {
+            "name": "Hector Salamanca",
+            "email": "hector.salamanca@ptwp.pl",
+            "phone": "32 333 33 33",
+            "city": "Katowice"
+          },
+          "2": {
+            "name": "Katarzyna Nowak",
+            "email": "katarzyna.nowak@ptwp.pl",
+            "phone": "32 222 33 33",
+            "city": "Katowice"
+          },
+          "3": {
+            "name": "Jessie Pinkman",
+            "email": "jessie.pinkman@ptwp.pl",
+            "phone": "32 111 33 33",
+            "city": "Katowice"
+          }
+        }
+      },
+      {
+        "name": "Procedury działu",
+        "desc": "Jakieś Procedury wsparcie"
+      }
+    ]
+  }
+}
