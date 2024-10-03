@@ -28,7 +28,7 @@ function VacationForm() {
           <input
             onChange={(e) => setStartDate(e.target.value)}
             type="date"
-            className="bg-bg-color text-secondary-color border-2 border-secondary-color hover:border-main-color rounded-md"
+            className="bg-bg-color text-secondary-color border-2 border-main-color hover:rounded-full rounded-md"
           />
           {isSubmitted && !startDate && (
             <p className="text-red-500">* to pole jest wymagane</p>
@@ -45,7 +45,7 @@ function VacationForm() {
           <input
             onChange={(e) => setEndDate(e.target.value)}
             type="date"
-            className="bg-bg-color text-secondary-color border-2 border-secondary-color hover:border-main-color rounded-md"
+            className="bg-bg-color text-secondary-color border-2 border-main-color hover:rounded-full rounded-md"
           />
           {isSubmitted && !endDate && (
             <p className="text-red-500">* to pole jest wymagane</p>
@@ -61,7 +61,7 @@ function VacationForm() {
 
         <select
           onChange={(e) => setAbsenceType(e.target.value)}
-          className="py-1 px-3 rounded-md text-secondary-color bg-bg-color border-2 border-secondary-color hover:border-main-color cursor-pointer"
+          className="py-1 px-3 rounded-md text-secondary-color bg-bg-color border-2 border-main-color hover:rounded-full cursor-pointer"
         >
           <option value="" disabled selected>
             Rodzaj urlopu
@@ -78,7 +78,7 @@ function VacationForm() {
         <label className="text-secondary-color font-medium">Zastępstwo</label>
         <input
           type="search"
-          className="rounded-md border-2 py-1 px-3 hover:border-main-color border-secondary-color bg-bg-color text-secondary-color"
+          className="rounded-md border-2 py-1 px-3 hover:rounded-full border-main-color bg-bg-color text-secondary-color"
           placeholder="Imie i nazwisko pracownika"
         />
       </div>
@@ -88,7 +88,7 @@ function VacationForm() {
         </label>
         <textarea
           type="text"
-          className="border-2 rounded-md py-1 px-3 hover:border-main-color bg-bg-color text-secondary-color border-secondary-color"
+          className="border-2 rounded-md py-1 px-3 hover:rounded-full bg-bg-color text-secondary-color border-main-color"
           placeholder="Jakieś dodakowe informacje..."
         ></textarea>
       </div>

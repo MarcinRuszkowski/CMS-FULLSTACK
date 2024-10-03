@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { getAllEmployees } from "../API/employeeAPI";
 import EmployeesFinder from "../components/EmployeesFinder";
 import EmployeeInfo from "../components/EmployeeInfo";
 // import employeesData from "../JSONData/employees.json";
 
 function EmployeesPage() {
   const [employeesData, setEmployeesData] = useState([]);
-
   const [selectedCompanyOptions, setSelectedCompanyOptions] = useState([]);
   const [selectedLocationOptions, setSelectedLocationOptions] = useState([]);
   const [selectedDepartmentOptions, setSelectedDepartmentOptions] = useState(
@@ -21,8 +20,8 @@ function EmployeesPage() {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/employees");
-        setEmployeesData(response.data);
+        const employees = await getAllEmployees();
+        setEmployeesData(employees);
       } catch (error) {
         console.error("Błąd podczas pobierania danych:", error);
       }
@@ -36,7 +35,7 @@ function EmployeesPage() {
     const locations = new Set();
     const departments = new Set();
 
-    Object.values(employeesData).forEach((employee) => {
+    employeesData.forEach((employee) => {
       companies.add(employee.company);
       locations.add(employee.city);
       departments.add(employee.department);
@@ -64,6 +63,7 @@ function EmployeesPage() {
 
     return companyMatch && locationMatch && departmentMatch && nameMatch;
   });
+
   return (
     <section className="mx-5 bg-box-color rounded-md flex flex-col">
       <EmployeesFinder

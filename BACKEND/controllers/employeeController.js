@@ -10,3 +10,23 @@ export const getAllEmployees = async (req, res) => {
       .json({ message: "Błąd podczas pobierania danych z bazy", error });
   }
 };
+
+export const addEmployee = async (req, res) => {
+  const { name, company, job, department, city } = req.body;
+  try {
+    const newEmployee = new Employee({
+      name,
+      company,
+      job,
+      department,
+      city,
+    });
+
+    const savedEmployee = await newEmployee.save();
+    res.status(201).json(savedEmployee);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Błąd podczas dodawania nowego pracownika", error });
+  }
+};

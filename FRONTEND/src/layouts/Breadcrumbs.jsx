@@ -1,5 +1,6 @@
 import { IoMdHome, IoIosArrowForward } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
+import AddEmployeePage from "../pages/AddEmployeePage";
 
 function Breadcrumbs() {
   const location = useLocation();
@@ -17,6 +18,7 @@ function Breadcrumbs() {
     mainDocs: "Dokumenty ogólne",
     detail: "Szczegóły",
     adminPanel: "Panel Admina",
+    addEmployee: "Dodawanie pracownika",
   };
 
   const pages = location.pathname

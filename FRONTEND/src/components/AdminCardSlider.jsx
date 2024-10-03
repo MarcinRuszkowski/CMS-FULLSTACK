@@ -15,13 +15,13 @@ function AdminCardSlider() {
         grabCursor={true}
         centeredSlides={true}
         loop={true}
-        slidesPerView={4}
+        slidesPerView={3.5}
         coverflowEffect={{
-          rotate: 10,
-          stretch: -50,
-          depth: 250,
+          rotate: -5,
+          stretch: -5,
+          depth: 100,
           modifier: 3.5,
-          slideShadows: false,
+          slideShadows: true,
         }}
         navigation={{
           nextEl: ".swiper-button-next",
@@ -95,7 +95,7 @@ function AdminCardSlider() {
           />
         </SwiperSlide>
 
-        <div className="flex justify-center space-x-2 mt-5 items-center">
+        <div className="flex justify-center space-x-2 mt-5 ">
           <div className="swiper-button-prev cursor-pointer rounded-full p-2 border border-transparent hover:border-current transition">
             <ArrowLeft size={24} />
           </div>
