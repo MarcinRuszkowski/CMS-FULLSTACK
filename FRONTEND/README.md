@@ -1,3 +1,3 @@
 # React + Tailwindcss
 
-PTWP CMS
+CMS
