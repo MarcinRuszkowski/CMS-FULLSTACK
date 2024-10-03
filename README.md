@@ -1,7 +1,7 @@
-CMS
+CMS/r
 [MongoDB, Express, React, NodeJS, Tailwind]
 
-BASH:
+BASH:/r
 For dev mode
 
 1. /CMS-fullstack
