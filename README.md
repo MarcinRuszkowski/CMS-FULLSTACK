@@ -1,14 +1,51 @@
-CMS/r
-[MongoDB, Express, React, NodeJS, Tailwind]
 
-BASH:/r
-For dev mode
+# CMS
 
-1. /CMS-fullstack
-   npm install
+Portal dla firm
 
-2. /BACKEND
-   npm run dev
 
-3. /FRONTEND
-   npm run dev
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/MarcinRuszkowski/CMS-FULLSTACK.git
+```
+
+Go to the project directory
+
+```bash
+  cd CMS-fullstack
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+
+### Deployment
+
+To deploy this project run
+
+```bash
+  cd BACKEND
+```
+```bash
+  npm run dev
+```
+Now backend is running
+```bash
+  cd FRONTEND
+```
+```bash
+  npm run dev
+```
+Now frontend is running
