@@ -1,4 +1,14 @@
 CMS
 [MongoDB, Express, React, NodeJS, Tailwind]
 
-1.npm i 2. /BACKEND npm run start
+BASH:
+For dev mode
+
+1. /CMS-fullstack
+   npm install
+
+2. /BACKEND
+   npm run dev
+
+3. /FRONTEND
+   npm run dev
