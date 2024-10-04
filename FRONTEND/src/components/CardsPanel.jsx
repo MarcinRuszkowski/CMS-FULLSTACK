@@ -7,6 +7,8 @@ import { ImVideoCamera } from "react-icons/im";
 import { FaSuitcaseRolling } from "react-icons/fa6";
 import { GiPublicSpeaker } from "react-icons/gi";
 import { MdAdminPanelSettings } from "react-icons/md";
+import { IoCalendar } from "react-icons/io5";
+
 
 import Card from "./Card";
 
@@ -67,6 +69,12 @@ function CardsPanel() {
         icon={<MdAdminPanelSettings />}
         title="Admin"
         color="border-emerald-200 text-emerald-200"
+      />
+      <Card
+        linkTo="/eventsCalendar"
+        icon={<IoCalendar />}
+        title="Kalendarz wydarzeń"
+        color="border-purple-700 text-purple-700"
       />
     </div>
   );

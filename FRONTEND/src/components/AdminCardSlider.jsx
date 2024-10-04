@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation } from "swiper/modules";
 import { ArrowLeft, ArrowRight } from "phosphor-react";
 import { HiUserGroup } from "react-icons/hi";
+import { MdQuestionMark } from "react-icons/md";
 import AdminCard from "./AdminCard";
 
 import "swiper/css";
@@ -33,65 +34,47 @@ function AdminCardSlider() {
       >
         <SwiperSlide>
           <AdminCard
-            linkTo="/addEmployee"
+            linkTo="/adminPanel/addEmployee"
             title="Pracownicy"
             desc="Dodaj lub edytuj pracownika"
             icon={<HiUserGroup />}
-            color="bg-purple-500 border-purple-600"
+            color="bg-yellow-500 border-yellow-600"
           />
         </SwiperSlide>
         <SwiperSlide>
           <AdminCard
-            linkTo="/departments"
-            title="Działy"
-            desc="Zarządzaj działami"
-            icon={<HiUserGroup />}
+            linkTo="/adminPanel"
+            title="???????"
+            desc="??? ???????????? ????? ??? ???"
+            icon={<MdQuestionMark />}
             color="bg-blue-500 border-blue-600"
           />
         </SwiperSlide>
         <SwiperSlide>
           <AdminCard
-            linkTo="/docs"
-            title="Dokumenty"
-            desc="Przeglądaj firmowe dokumenty"
-            icon={<HiUserGroup />}
-            color="bg-green-500 border-green-600"
+            linkTo="/adminPanel"
+            title="???????"
+            desc="??? ???????????? ????? ??? ???"
+            icon={<MdQuestionMark />}
+            color="bg-red-500 border-red-600"
           />
         </SwiperSlide>
         <SwiperSlide>
           <AdminCard
-            linkTo="/docs"
-            title="Dokumenty"
-            desc="Przeglądaj firmowe dokumenty"
-            icon={<HiUserGroup />}
-            color="bg-green-500 border-green-600"
+            linkTo="/adminPanel"
+            title="???????"
+            desc="??? ???????????? ????? ??? ???"
+            icon={<MdQuestionMark />}
+            color="bg-emerald-500 border-emerald-600"
           />
         </SwiperSlide>
         <SwiperSlide>
           <AdminCard
-            linkTo="/docs"
-            title="Dokumenty"
-            desc="Przeglądaj firmowe dokumenty"
-            icon={<HiUserGroup />}
-            color="bg-green-500 border-green-600"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <AdminCard
-            linkTo="/docs"
-            title="Dokumenty"
-            desc="Przeglądaj firmowe dokumenty"
-            icon={<HiUserGroup />}
-            color="bg-green-500 border-green-600"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <AdminCard
-            linkTo="/docs"
-            title="Dokumenty"
-            desc="Przeglądaj firmowe dokumenty"
-            icon={<HiUserGroup />}
-            color="bg-green-500 border-green-600"
+            linkTo="/adminPanel"
+            title="???????"
+            desc="??? ???????????? ????? ??? ???"
+            icon={<MdQuestionMark />}
+            color="bg-purple-500 border-purple-600"
           />
         </SwiperSlide>
 

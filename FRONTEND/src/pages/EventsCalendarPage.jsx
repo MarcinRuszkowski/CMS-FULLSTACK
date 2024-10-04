@@ -1,26 +1,7 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import EventsCalendarRight from "../components/EventsCalendarRight";
 import EventsCalendarLeft from "../components/EventsCalendarLeft";
 
 function EventsCalendarPage() {
-  // const [events, setEvents] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchEvents = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         "http://localhost:5000/api/eventsCalendar"
-  //       );
-  //       setEvents(response.data);
-  //     } catch (error) {
-  //       console.error("Błąd podczas pobierania wydarzeń:", error);
-  //     }
-  //   };
-
-  //   fetchEvents();
-  // }, []);
-
   return (
     <>
       <section className="sm:mx-5 ">

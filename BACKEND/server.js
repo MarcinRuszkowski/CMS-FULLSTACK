@@ -5,6 +5,7 @@ import path from "path";
 
 import connectDB from "./config/db.js";
 import employeeRoutes from "./routes/employeeRoutes.js";
+import eventRoutes from "./routes/eventRoutes.js";
 
 dotenv.config();
 
@@ -20,17 +21,9 @@ app.use(cors());
 
 app.use(express.static(path.join(path.resolve(), "..", "FRONTEND", "dist")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(
-//     path.join(path.resolve(), "..", "FRONTEND", "dist", "index.html")
-//   );
-//   console.log(
-//     path.join(path.resolve(), "..", "FRONTEND", "dist", "index.html")
-//   );
-// });
-
 // API
 app.use("/api/employees", employeeRoutes);
+app.use("/api/eventsCalendar", eventRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
