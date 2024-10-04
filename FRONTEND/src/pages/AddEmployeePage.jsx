@@ -3,6 +3,7 @@ import { getAllEmployees, createEmployee } from "../API/employeeAPI";
 import Select from "../components/Select";
 import NewEmployeeCard from "../components/NewEmployeeCard";
 import AlertSuccess from "../components/AlertSuccess";
+import AlertError from "../components/AlertError";
 
 function AddEmployeePage() {
   const [employeesData, setEmployeesData] = useState([]);
@@ -15,13 +16,9 @@ function AddEmployeePage() {
   const [selectedDepartment, setSelectedDepartment] = useState();
   const [jobTitle, setJobTitle] = useState("");
   const [showAlert, setShowAlert] = useState(false);
-  const [errors, setErrors] = useState({
-    employeeName: "",
-    selectedCompany: "",
-    selectedCity: "",
-    selectedDepartment: "",
-    jobTitle: "",
-  });
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
+  const [errorMessage, setErrorMessage] = useState([]);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const fetchEmployees = async () => {
@@ -47,7 +44,7 @@ function AddEmployeePage() {
       departments.add(employee.department);
     });
 
-    // departments.add("alchemia");
+    // departments.add("Marketing");
     // jakby jakiegoś działu nie było to rzeba dodac tą linijke.
     // po dodaniu pracownika do db można ją usunąc bo już bedzie pobierana z db
 
@@ -57,17 +54,36 @@ function AddEmployeePage() {
   }, [employeesData]);
 
   const validateFields = () => {
-    let formErrors = {};
+    let error = {};
 
-    if (!employeeName) formErrors.employeeName = "Imię i nazwisko są wymagane";
-    if (!selectedCompany) formErrors.selectedCompany = "Firma jest wymagana";
-    if (!selectedCity) formErrors.selectedCity = "Miasto jest wymagane";
-    if (!selectedDepartment)
-      formErrors.selectedDepartment = "Dział jest wymagany";
-    if (!jobTitle) formErrors.jobTitle = "Stanowisko jest wymagane";
+    if (!employeeName) {
+      error.employeeName = "Imię i nazwisko są wymagane";
+    }
+    if (!selectedCompany) {
+      error.selectedCompany = "Firma jest wymagana";
+    }
+    if (!selectedCity) {
+      error.selectedCity = "Miasto jest wymagane";
+    }
+    if (!selectedDepartment) {
+      error.selectedDepartment = "Dział jest wymagany";
+    }
+    if (!jobTitle) {
+      error.jobTitle = "Stanowisko jest wymagane";
+    }
 
-    setErrors(formErrors);
-    return Object.keys(formErrors).length === 0;
+    setErrors(error);
+
+    const errorMessages = Object.values(error);
+    setErrorMessage(errorMessages);
+
+    if (errorMessages.length > 0) {
+      setShowErrorAlert(true);
+      return false;
+    } else {
+      setShowErrorAlert(false);
+      return true;
+    }
   };
 
   const handleAddEmployee = async () => {
@@ -91,7 +107,9 @@ function AddEmployeePage() {
       setSelectedCity("");
       setSelectedDepartment("");
       setJobTitle("");
-      setErrors({}); // Zresetuj błędy
+      setErrors({});
+      setErrorMessage([]);
+      setShowErrorAlert(false);
 
       //  alert na 3 sekundy
       setShowAlert(true);
@@ -100,60 +118,71 @@ function AddEmployeePage() {
       console.error("Błąd podczas dodawania pracownika:", error);
     }
   };
+
+  const handleInputChange = (value, setter, errorField) => {
+    setter(value);
+
+    if (value) {
+      setErrors((prev) => ({ ...prev, [errorField]: "" }));
+      setErrorMessage((prev) =>
+        prev.filter((msg) => msg !== errors[errorField])
+      );
+    }
+  };
+
   return (
     <div className="flex flex-col md:flex-row justify-between gap-5">
       <div className="bg-box-color md:mx-5 p-5 rounded-md flex flex-col flex-1 gap-5">
         <input
           type="text"
           className="w-full rounded-md p-3 hover:rounded-full bg-bg-color border-2 border-main-color text-secondary-color"
-          placeholder="Imie Nazwisko"
+          placeholder="Imię i nazwisko"
           value={employeeName}
-          onChange={(e) => setEmployeeName(e.target.value)}
+          onChange={(e) =>
+            handleInputChange(e.target.value, setEmployeeName, "employeeName")
+          }
         />
-        {errors.employeeName && (
-          <span className="text-red-500">{errors.employeeName}</span>
-        )}
 
         <Select
           defOption="Wybierz firmę"
           options={companyOptions}
           value={selectedCompany}
-          onChange={(value) => setSelectedCompany(value)}
+          onChange={(value) =>
+            handleInputChange(value, setSelectedCompany, "selectedCompany")
+          }
         />
-        {errors.selectedCompany && (
-          <span className="text-red-500">{errors.selectedCompany}</span>
-        )}
 
         <Select
           defOption="Wybierz miasto"
           options={locationOptions}
           value={selectedCity}
-          onChange={(value) => setSelectedCity(value)}
+          onChange={(value) =>
+            handleInputChange(value, setSelectedCity, "selectedCity")
+          }
         />
-        {errors.selectedCity && (
-          <span className="text-red-500">{errors.selectedCity}</span>
-        )}
 
         <Select
           defOption="Wybierz dział"
           options={departmentOptions}
           value={selectedDepartment}
-          onChange={(value) => setSelectedDepartment(value)}
+          onChange={(value) =>
+            handleInputChange(
+              value,
+              setSelectedDepartment,
+              "selectedDepartment"
+            )
+          }
         />
-        {errors.selectedDepartment && (
-          <span className="text-red-500">{errors.selectedDepartment}</span>
-        )}
 
         <input
           type="text"
           className="w-full rounded-md p-3 hover:rounded-full bg-bg-color border-2 border-main-color text-secondary-color"
-          placeholder="Specjalista ds. nieudacznictwa"
+          placeholder="Stanowisko"
           value={jobTitle}
-          onChange={(e) => setJobTitle(e.target.value)}
+          onChange={(e) =>
+            handleInputChange(e.target.value, setJobTitle, "jobTitle")
+          }
         />
-        {errors.jobTitle && (
-          <span className="text-red-500">{errors.jobTitle}</span>
-        )}
 
         <button
           className="bg-main-color w-3/4 md:w-1/3 p-3 rounded-md hover:rounded-full text-white font-medium mt-10"
@@ -176,6 +205,16 @@ function AddEmployeePage() {
       {showAlert && (
         <div className="absolute bottom-8 right-2">
           <AlertSuccess message="Dodano użytkownika" />
+        </div>
+      )}
+
+      {showErrorAlert && (
+        <div className="absolute bottom-8 right-2">
+          <div className="flex flex-col gap-1">
+            {errorMessage.map((message, index) => (
+              <AlertError key={index} message={message} />
+            ))}
+          </div>
         </div>
       )}
     </div>
