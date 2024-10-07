@@ -1,83 +1,98 @@
-import EventsCalendarRight from "../components/EventsCalendarRight";
-import EventsCalendarLeft from "../components/EventsCalendarLeft";
+import { useEffect, useState } from "react";
+import { getEvents } from "../API/eventAPI";
+import { FaCheckCircle } from "react-icons/fa";
 
 function EventsCalendarPage() {
+  const [eventsData, setEventsData] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const events = await getEvents();
+        setEventsData(events);
+      } catch (error) {
+        console.error("Błąd podczas pobierania danych:", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  const groupEventsByYear = (events) => {
+    return events.reduce((acc, event) => {
+      const startDate = new Date(event.startDate);
+      const year = startDate.getFullYear();
+      if (!acc[year]) {
+        acc[year] = [];
+      }
+      acc[year].push(event);
+      return acc;
+    }, {});
+  };
+
+  const groupedEvents = groupEventsByYear(eventsData);
+
+  const today = new Date();
+
   return (
     <>
-      <section className="sm:mx-5 ">
+      <section className="sm:mx-5">
         <div className="mx-5">
-          <ul className="timeline timeline-vertical">
-            <li>
-              <div className="timeline-middle">
-                <div className="timeline-middle pb-5">
-                  <p className="font-bold text-xl text-secondary-color">2019</p>
-                </div>
-              </div>
-              <hr className="bg-main-color" />
-            </li>
-            <EventsCalendarRight
-              eventName="XI Europejski Kongres Gospodarczy"
-              eventDate="13-15 maja 2020"
-              bg="bg-blue-300"
-            />
-            <EventsCalendarLeft
-              eventName="Narowowe Wyzwania w Rolnictwie"
-              eventDate="1-15 listopad 2024"
-            />
-            <EventsCalendarRight
-              eventName="4Buildings"
-              eventDate="13-15 maja 2020"
-            />
-            <EventsCalendarLeft
-              eventName="European Start-up Days 4"
-              eventDate="5-3 grudzień 2024"
-            />
-            <EventsCalendarRight
-              eventName="XV Forum Rynku Zdrowia"
-              eventDate="13-15 maja 2020"
-              bg="bg-green-300"
-            />
+          {Object.keys(groupedEvents).map((year) => (
+            <div key={year}>
+              <div className="m-5 text-center text-xl font-bold">{year}</div>
+              <ul className="timeline timeline-vertical">
+                {groupedEvents[year].map((event, index) => {
+                  const startDate = new Date(event.startDate);
+                  const isFutureEvent = startDate > today;
 
-            <EventsCalendarLeft eventDate="1-15 listopad 2024" />
-            <EventsCalendarRight
-              eventName="4Buildings"
-              eventDate="13-15 maja 2020"
-            />
-            <EventsCalendarLeft
-              eventName="European Start-up Days 4"
-              eventDate="1-15 listopad 2024"
-            />
-            <li>
-              <div className="timeline-middle">
-                <div className="timeline-middle pb-5">
-                  <p className="font-bold text-xl text-secondary-color">2020</p>
-                </div>
-              </div>
-              <hr className="bg-main-color" />
-            </li>
-            <EventsCalendarRight eventName="Gołębie" eventDate="2 maja 2020" />
-            <EventsCalendarLeft
-              eventName="European Start-up Days 4"
-              eventDate="1-15 listopad 2024"
-              bg="bg-yellow-200"
-            />
-            <EventsCalendarLeft eventDate="1-15 listopad 2024" />
-            <EventsCalendarRight
-              eventName="4Buildings"
-              eventDate="13-15 maja 2020"
-            />
-            <EventsCalendarLeft
-              eventName="European Start-up Days 4"
-              eventDate="1-15 listopad 2024"
-            />
-            <EventsCalendarRight eventName="Gołębie" eventDate="2 maja 2020" />
-            <EventsCalendarRight eventName="Gołębie" eventDate="22 maja 2020" />
-            <EventsCalendarLeft
-              eventName="European Start-up Days 4"
-              eventDate="1-15 listopad 2024"
-              bg="bg-yellow-200"
-            />
-          </ul>
+                  return (
+                    <li key={event._id.$oid}>
+                      <hr
+                        className={
+                          isFutureEvent ? "bg-box-color" : "bg-main-color"
+                        }
+                      />
+                      <div
+                        className={`${
+                          index % 2 === 0 ? "timeline-start" : "timeline-end"
+                        } ${
+                          isFutureEvent
+                            ? " border-secondary-color"
+                            : "border-main-color"
+                        } border-2 bg-box-color timeline-box`}
+                      >
+                        <div className="font-semibold">{event.eventName}</div>
+                        <div className="text-sm text-gray-500">
+                          {startDate.toLocaleDateString("pl-PL", {
+                            day: "numeric",
+                          })}{" "}
+                          -{" "}
+                          {new Date(event.endDate).toLocaleDateString("pl-PL", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </div>
+                      </div>
+                      <div className="timeline-middle">
+                        <FaCheckCircle
+                          className={`my-1.5 ${
+                            isFutureEvent ? "" : "text-main-color"
+                          }`}
+                        />
+                      </div>
+                      <hr
+                        className={
+                          isFutureEvent ? "bg-box-color" : "bg-main-color"
+                        }
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
     </>
