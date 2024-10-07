@@ -14,7 +14,11 @@ export const getAllEmployees = async () => {
 
 export const createEmployee = async (employeeData) => {
   try {
-    const response = await axios.post(API_URL, employeeData);
+    const response = await axios.post(API_URL, employeeData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return response.data;
   } catch (error) {
     console.error("Error adding employee", error);

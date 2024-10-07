@@ -20,6 +20,10 @@ app.use(express.json());
 app.use(cors());
 
 app.use(express.static(path.join(path.resolve(), "..", "FRONTEND", "dist")));
+app.use(
+  "/uploads",
+  express.static(path.join(path.resolve(), "uploads/profileImages"))
+);
 
 // API
 app.use("/api/employees", employeeRoutes);

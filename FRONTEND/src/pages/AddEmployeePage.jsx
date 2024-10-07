@@ -15,6 +15,8 @@ function AddEmployeePage() {
   const [selectedCity, setSelectedCity] = useState();
   const [selectedDepartment, setSelectedDepartment] = useState();
   const [jobTitle, setJobTitle] = useState("");
+  const [profileImage, setProfileImage] = useState(null);
+  const [imageTitle, setImageTitle] = useState("Nie wybrano zdjęcia");
   const [showAlert, setShowAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
   const [errorMessage, setErrorMessage] = useState([]);
@@ -89,24 +91,30 @@ function AddEmployeePage() {
   const handleAddEmployee = async () => {
     if (!validateFields()) return;
 
-    const newEmployee = {
-      name: employeeName,
-      company: selectedCompany,
-      city: selectedCity,
-      department: selectedDepartment,
-      job: jobTitle,
-    };
+    const formData = new FormData();
+
+    formData.append("name", employeeName);
+    formData.append("company", selectedCompany);
+    formData.append("city", selectedCity);
+    formData.append("department", selectedDepartment);
+    formData.append("job", jobTitle);
+
+    if (profileImage) {
+      formData.append("profileImage", profileImage);
+    }
 
     try {
-      const addedEmployee = await createEmployee(newEmployee);
+      const addedEmployee = await createEmployee(formData);
       console.log("Dodano pracownika:", addedEmployee);
 
-      // resetowanie po dodaniu formularza
+      // resetowanie formularza po dodaniu
       setEmployeeName("");
       setSelectedCompany("");
       setSelectedCity("");
       setSelectedDepartment("");
       setJobTitle("");
+      setProfileImage(null);
+      setImageTitle("Nie wybrano zdjęcia");
       setErrors({});
       setErrorMessage([]);
       setShowErrorAlert(false);
@@ -127,6 +135,14 @@ function AddEmployeePage() {
       setErrorMessage((prev) =>
         prev.filter((msg) => msg !== errors[errorField])
       );
+    }
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setProfileImage(file);
+      setImageTitle(file.name);
     }
   };
 
@@ -184,6 +200,19 @@ function AddEmployeePage() {
           }
         />
 
+        <label className="cursor-pointer text-secondary-color space-y-3">
+          <div className="">Dodaj zdjęcie profilowe:</div>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => handleImageChange(e)}
+            className="hidden"
+          />
+          <div className="bg-bg-color w-fit p-2 rounded hover:rounded-full">
+            {imageTitle}
+          </div>
+        </label>
+
         <button
           className="bg-main-color w-3/4 md:w-1/3 p-3 rounded-md hover:rounded-full text-white font-medium mt-10"
           onClick={handleAddEmployee}
@@ -199,6 +228,7 @@ function AddEmployeePage() {
           city={selectedCity}
           department={selectedDepartment}
           job={jobTitle}
+          image={profileImage && URL.createObjectURL(profileImage)}
         />
       </div>
 

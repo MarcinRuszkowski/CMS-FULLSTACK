@@ -13,6 +13,7 @@ export const getAllEmployees = async (req, res) => {
 
 export const addEmployee = async (req, res) => {
   const { name, company, job, department, city } = req.body;
+  const profileImage = req.file ? req.file.filename : null;
   try {
     const newEmployee = new Employee({
       name,
@@ -20,6 +21,7 @@ export const addEmployee = async (req, res) => {
       job,
       department,
       city,
+      profileImage,
     });
 
     const savedEmployee = await newEmployee.save();

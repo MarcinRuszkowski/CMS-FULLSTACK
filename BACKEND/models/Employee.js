@@ -6,6 +6,7 @@ const employeeSchema = new mongoose.Schema({
   job: { type: String, required: true },
   department: { type: String, required: true },
   city: { type: String, required: true },
+  profileImage: { type: String },
 });
 
 const Employee = mongoose.model("Employee", employeeSchema);
