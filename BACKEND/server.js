@@ -6,6 +6,7 @@ import path from "path";
 import connectDB from "./config/db.js";
 import employeeRoutes from "./routes/employeeRoutes.js";
 import eventRoutes from "./routes/eventRoutes.js";
+import departmentRoutes from './routes/departmentRoutes.js'
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use(
 // API
 app.use("/api/employees", employeeRoutes);
 app.use("/api/eventsCalendar", eventRoutes);
+app.use("/api/departments", departmentRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
