@@ -1,10 +1,13 @@
 import { MongoClient } from "mongodb";
 import { readFile } from "fs/promises";
+import dotenv from "dotenv";
 
-const uri = "mongodb://localhost:27017";
+dotenv.config();
 
+const uri = process.env.MONGO_URI;
 const dbName = "CMS_DB";
-const collectionName = "events"; // nazwa kolekcji
+
+const collectionName = "departments"; // nazwa nowej kolekcji
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -13,17 +16,17 @@ const client = new MongoClient(uri, {
 
 async function insertDataFromJson() {
   try {
-    const data = await readFile("events.json", "utf8"); // nazwa pliku json
-    const events = JSON.parse(data);
+    const data = await readFile("departments.json", "utf8"); // plik JSON
+    const records = JSON.parse(data);
 
     await client.connect();
-    console.log("połączono z db");
+    console.log("Połączono z db");
 
     const db = client.db(dbName);
-    const collection = db.collection(collectionName);
 
-    const result = await collection.insertMany(events);
-    console.log(`${result.insertedCount} dodano do db`);
+    const collection = db.collection(collectionName);
+    const result = await collection.insertMany(records);
+    console.log(`${result.insertedCount} dodano do kolekcji ${collectionName}`);
   } catch (error) {
     console.error("Wystąpił błąd:", error);
   } finally {

@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Dział IT",
+    "desc": "Dział odpowiedzialny za rozwój i utrzymanie systemów informatycznych.",
+    "address": {
+      "street": "Plac Sławika i Antalla 1",
+      "city": "Katowice",
+      "zipCode": "40 - 163",
+      "room": "2.26 Kostka C"
+    },
+    "depEmail": "dział.it@ptwp.pl",
+    "employees": [
+      "670502f240c39c2a983ac213",
+      "670502f240c39c2a983ac215",
+      "670502f240c39c2a983ac217",
+      "670502f240c39c2a983ac219",
+      "670502f240c39c2a983ac21a",
+      "670502f240c39c2a983ac21b",
+      "670502f240c39c2a983ac225"
+    ],
+    "procedury": ["proceduryIT1.pdf", "proceduryIT2.pdf", "proceduryIT3.pdf"]
+  },
+  {
+    "name": "Dział Księgowości",
+    "desc": "Dział zajmujący się finansami i rachunkowością firmy.",
+    "address": {
+      "street": "Plac Sławika i Antalla 1",
+      "city": "Katowice",
+      "zipCode": "40 - 163",
+      "room": "3.16 Kostka A"
+    },
+    "depEmail": "dział.księgowości@ptwp.pl",
+    "employees": ["670502f240c39c2a983ac214"],
+    "procedury": [
+      "proceduryKsięgowości1.pdf",
+      "proceduryKsięgowości2.pdf",
+      "proceduryKsięgowości3.pdf"
+    ]
+  },
+  {
+    "name": "Dział HR i kadr",
+    "desc": "Dział zajmujący się zarządzaniem zasobami ludzkimi.",
+    "address": {
+      "street": "Plac Sławika i Antalla 1",
+      "city": "Katowice",
+      "zipCode": "40 - 163",
+      "room": "3.66 Kostka B"
+    },
+    "depEmail": "dział.hr@ptwp.pl",
+    "employees": ["670502f240c39c2a983ac216"],
+    "procedury": ["proceduryHR1.pdf", "proceduryHR2.pdf", "proceduryHR3.pdf"]
+  },
+  {
+    "name": "Dział Grafiki",
+    "desc": "Dział odpowiedzialny za projektowanie graficzne.",
+    "address": {
+      "street": "Plac Sławika i Antalla 1",
+      "city": "Katowice",
+      "zipCode": "40 - 163",
+      "room": "1.26 Kostka B"
+    },
+    "depEmail": "dział.grafiki@ptwp.pl",
+    "employees": [
+      "670502f240c39c2a983ac21c",
+      "670502f240c39c2a983ac21f",
+      "670502f240c39c2a983ac222"
+    ],
+    "procedury": [
+      "proceduryGrafiki1.pdf",
+      "proceduryGrafiki2.pdf",
+      "proceduryGrafiki3.pdf"
+    ]
+  },
+  {
+    "name": "Dział Redakcji",
+    "desc": "Dział zajmujący się tworzeniem i redagowaniem treści.",
+    "address": {
+      "street": "Plac Sławika i Antalla 1",
+      "city": "Katowice",
+      "zipCode": "40 - 163",
+      "room": "3.26 Kostka B"
+    },
+    "depEmail": "dział.redakcji@ptwp.pl",
+    "employees": ["670502f240c39c2a983ac21d", "670502f240c39c2a983ac223"],
+    "procedury": [
+      "proceduryRedakcji1.pdf",
+      "proceduryRedakcji2.pdf",
+      "proceduryRedakcji3.pdf"
+    ]
+  },
+  {
+    "name": "Dział Ochrony",
+    "desc": "Dział odpowiedzialny za bezpieczeństwo i ochronę obiektów.",
+    "address": {
+      "street": "Plac Sławika i Antalla 1",
+      "city": "Katowice",
+      "zipCode": "40 - 163",
+      "room": "1.46 Kostka A"
+    },
+    "depEmail": "dział.ochrony@ptwp.pl",
+    "employees": [
+      "670502f240c39c2a983ac21e",
+      "670502f240c39c2a983ac220",
+      "670502f240c39c2a983ac221"
+    ],
+    "procedury": [
+      "proceduryOchrony1.pdf",
+      "proceduryOchrony2.pdf",
+      "proceduryOchrony3.pdf"
+    ]
+  },
+  {
+    "name": "Dział Marketingu",
+    "desc": "Dział odpowiedzialny sprzedaż.",
+    "address": {
+      "street": "Plac Sławika i Antalla 1",
+      "city": "Katowice",
+      "zipCode": "40 - 163",
+      "room": "3.06 Kostka A"
+    },
+    "depEmail": "dział.marketingu@ptwp.pl",
+    "employees": ["670502f240c39c2a983ac226"],
+    "procedury": [
+      "proceduryMarketingu1.pdf",
+      "proceduryMarketingu2.pdf",
+      "proceduryMarketingu3.pdf"
+    ]
+  },
+  {
+    "name": "Dział Administracji",
+    "desc": "Dział zajmujący się zarządzaniem administracyjnym firmy.",
+    "address": {
+      "street": "Plac Sławika i Antalla 1",
+      "city": "Katowice",
+      "zipCode": "40 - 163",
+      "room": "1.20 Kostka C"
+    },
+    "depEmail": "dział.administracji@ptwp.pl",
+    "employees": ["670502f240c39c2a983ac218", "670502f240c39c2a983ac224"],
+    "procedury": [
+      "proceduryAdministracji1.pdf",
+      "proceduryAdministracji2.pdf",
+      "proceduryAdministracji3.pdf"
+    ]
+  }
+]

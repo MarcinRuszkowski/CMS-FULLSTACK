@@ -15,6 +15,8 @@ function AddEmployeePage() {
   const [selectedCity, setSelectedCity] = useState();
   const [selectedDepartment, setSelectedDepartment] = useState();
   const [jobTitle, setJobTitle] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState();
   const [profileImage, setProfileImage] = useState(null);
   const [imageTitle, setImageTitle] = useState("Nie wybrano zdjęcia");
   const [showAlert, setShowAlert] = useState(false);
@@ -73,6 +75,9 @@ function AddEmployeePage() {
     if (!jobTitle) {
       error.jobTitle = "Stanowisko jest wymagane";
     }
+    if (!email) {
+      error.email = "Email jest wymagany";
+    }
 
     setErrors(error);
 
@@ -98,9 +103,14 @@ function AddEmployeePage() {
     formData.append("city", selectedCity);
     formData.append("department", selectedDepartment);
     formData.append("job", jobTitle);
+    formData.append("email", email);
 
     if (profileImage) {
       formData.append("profileImage", profileImage);
+    }
+
+    if (phone) {
+      formData.append("phone", phone);
     }
 
     try {
@@ -113,6 +123,8 @@ function AddEmployeePage() {
       setSelectedCity("");
       setSelectedDepartment("");
       setJobTitle("");
+      setEmail("");
+      setPhone("");
       setProfileImage(null);
       setImageTitle("Nie wybrano zdjęcia");
       setErrors({});
@@ -199,6 +211,20 @@ function AddEmployeePage() {
             handleInputChange(e.target.value, setJobTitle, "jobTitle")
           }
         />
+        <input
+          type="email"
+          className="w-full rounded-md p-3 hover:rounded-full bg-bg-color border-2 border-main-color text-secondary-color"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => handleInputChange(e.target.value, setEmail, "email")}
+        />
+        <input
+          type="tel"
+          className="w-full rounded-md p-3 hover:rounded-full bg-bg-color border-2 border-main-color text-secondary-color"
+          placeholder="Phone"
+          value={phone}
+          onChange={(e) => handleInputChange(e.target.value, setPhone, "phone")}
+        />
 
         <label className="cursor-pointer text-secondary-color space-y-3">
           <div className="">Dodaj zdjęcie profilowe:</div>
@@ -228,6 +254,8 @@ function AddEmployeePage() {
           city={selectedCity}
           department={selectedDepartment}
           job={jobTitle}
+          email={email}
+          phone={phone}
           image={profileImage && URL.createObjectURL(profileImage)}
         />
       </div>
