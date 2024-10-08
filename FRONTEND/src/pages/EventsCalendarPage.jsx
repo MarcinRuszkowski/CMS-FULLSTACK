@@ -31,8 +31,9 @@ function EventsCalendarPage() {
   };
 
   const groupedEvents = groupEventsByYear(eventsData);
-
   const today = new Date();
+
+  let firstFutureEventFound = false;
 
   return (
     <>
@@ -46,6 +47,13 @@ function EventsCalendarPage() {
                   const startDate = new Date(event.startDate);
                   const isFutureEvent = startDate > today;
 
+                  const addGreenBorder =
+                    isFutureEvent && !firstFutureEventFound;
+
+                  if (addGreenBorder) {
+                    firstFutureEventFound = true;
+                  }
+
                   return (
                     <li key={event._id.$oid}>
                       <hr
@@ -57,21 +65,23 @@ function EventsCalendarPage() {
                         className={`${
                           index % 2 === 0 ? "timeline-start" : "timeline-end"
                         } ${
-                          isFutureEvent
-                            ? " border-secondary-color"
+                          addGreenBorder
+                            ? "border-green-500 border-double border-4 "
+                            : isFutureEvent
+                            ? "border-secondary-color"
                             : "border-main-color"
                         } border-2 bg-box-color timeline-box`}
                       >
                         <div className="font-semibold">{event.eventName}</div>
                         <div className="text-sm text-gray-500">
                           {startDate.toLocaleDateString("pl-PL", {
-                            day: "numeric",
+                            day: "2-digit",
                           })}{" "}
                           -{" "}
                           {new Date(event.endDate).toLocaleDateString("pl-PL", {
-                            year: "numeric",
+                            day: "2-digit",
                             month: "long",
-                            day: "numeric",
+                            year: "numeric",
                           })}
                         </div>
                       </div>

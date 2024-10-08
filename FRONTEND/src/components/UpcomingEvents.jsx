@@ -32,6 +32,8 @@ function UpcomingEvents() {
 
   const eventsToDisplay = [...limitedPastEvents, ...limitedFutureEvents];
 
+  let firstFutureEventFound = false;
+
   return (
     <div className="flex flex-col bg-box-color p-5 rounded-md">
       <p className="text-main-color font-medium text-lg border-b-2 pb-2 mb-3">
@@ -40,7 +42,14 @@ function UpcomingEvents() {
       <ul className="timeline overflow-x-auto">
         {eventsToDisplay.map((event, index) => {
           const startDate = new Date(event.startDate);
+          const endDate = new Date(event.endDate);
           const isFutureEvent = startDate > today;
+
+          const addGreenBorder = isFutureEvent && !firstFutureEventFound;
+
+          if (addGreenBorder) {
+            firstFutureEventFound = true;
+          }
 
           return (
             <li key={event._id.$oid}>
@@ -49,14 +58,22 @@ function UpcomingEvents() {
                 className={`${
                   index % 2 === 0 ? "timeline-start" : "timeline-end"
                 } ${
-                  isFutureEvent ? " border-secondary-color" : "border-main-color"
+                  addGreenBorder
+                    ? "border-green-500 text-green-500"
+                    : isFutureEvent
+                    ? " border-secondary-color"
+                    : "border-main-color"
                 } border-2 bg-bg-color timeline-box`}
               >
                 <div className="font-semibold">{event.eventName}</div>
                 <div className="text-sm text-gray-500">
                   {startDate.toLocaleDateString("pl-PL", {
-                    day: "numeric",
-                    month: "long",
+                    day: "2-digit",
+                  })}
+                  {" - "}
+                  {endDate.toLocaleDateString("pl-PL", {
+                    day: "2-digit",
+                    month: "short",
                     year: "numeric",
                   })}
                 </div>
