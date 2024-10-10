@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { getAllEmployees } from "../API/employeeAPI";
 import EmployeesFinder from "../components/EmployeesFinder";
 import EmployeeInfo from "../components/EmployeeInfo";
-// import employeesData from "../JSONData/employees.json";
 
 function EmployeesPage() {
   const [employeesData, setEmployeesData] = useState([]);

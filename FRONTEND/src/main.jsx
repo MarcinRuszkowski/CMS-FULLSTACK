@@ -18,6 +18,7 @@ import EmployeesPage from "./pages/EmployeesPage";
 import AboutCompanyPage from "./pages/AboutCompanyPage";
 import AdminPanel from "./pages/AdminPanel";
 import AddEmployeePage from "./pages/AddEmployeePage";
+import AbsencePlannerPage from "./pages/AbsencePlannerPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Layout from "./layouts/Layout";
 
@@ -52,6 +53,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <AbsenceDetailsPage />
+      </Layout>
+    ),
+  },
+  {
+    path: "/absence/absencePlanner",
+    element: (
+      <Layout>
+        <AbsencePlannerPage />
       </Layout>
     ),
   },

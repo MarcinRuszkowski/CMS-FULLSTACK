@@ -19,6 +19,7 @@ function Breadcrumbs() {
     detail: "Szczegóły",
     adminPanel: "Panel Admina",
     addEmployee: "Dodawanie pracownika",
+    absencePlanner: "Planowanie nieobecności",
   };
 
   const pages = location.pathname

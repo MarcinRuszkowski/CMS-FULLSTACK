@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  // format,
   addMonths,
   subMonths,
   startOfMonth,
@@ -8,26 +7,16 @@ import {
   eachDayOfInterval,
 } from "date-fns";
 import MonthNavigator from "./MonthNavigator";
-// import LeaveTypeSelector from "./LeaveTypeSelector";
 import DayGrid from "./DayGrid";
 import DayColorDesc from "./DayColorDesc";
 import SearchInput from "./SearchInput";
+import MyAbsenceBtn from "../MyAbsenceBtn";
+import AbsencePlannerBtn from "../AbsencePlannerBtn";
 
-const users = [
-  { id: 1, name: "Jan Kowalski", department: "IT" },
-  { id: 2, name: "Anna Nowak", department: "Księgowość" },
-  { id: 3, name: "Michał Wiśniewski", department: "Marketing" },
-  { id: 4, name: "Katarzyna Zawadzka", department: "Marketing" },
-  { id: 5, name: "Piotr Zieliński", department: "IT" },
-  { id: 6, name: "Walter White", department: "IT" },
-];
-
-function Calendar() {
+function Calendar({ employees, departmentOptions }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDays, setSelectedDays] = useState({});
   const [selectedDepartment, setSelectedDepartment] = useState("dowolny");
-  // const [selectedLeaveType, setSelectedLeaveType] =
-  //   useState("urlop na żądanie");
 
   const handlePrevMonth = () => {
     setCurrentDate(subMonths(currentDate, 1));
@@ -42,60 +31,30 @@ function Calendar() {
     end: endOfMonth(currentDate),
   });
 
-  // const toggleDaySelection = (userId, day) => {
-  //   const dayString = format(day, "yyyy-MM-dd");
-  //   const newSelectedDays = { ...selectedDays };
-
-  //   if (!newSelectedDays[userId]) {
-  //     newSelectedDays[userId] = {};
-  //   }
-
-  //   if (newSelectedDays[userId][dayString]) {
-  //     delete newSelectedDays[userId][dayString];
-  //   } else {
-  //     newSelectedDays[userId][dayString] = selectedLeaveType;
-  //   }
-
-  //   setSelectedDays(newSelectedDays);
-  // };
-
-  // const getLeaveColor = (leaveType) => {
-  //   switch (leaveType) {
-  //     case "urlop na żądanie":
-  //       return "bg-red-500 text-white";
-  //     case "urlop wypoczynkowy":
-  //       return "bg-main-color text-white";
-  //     case "urlop okolicznościowy":
-  //       return "bg-orange-500 text-white";
-  //     case "opieka nad dzieckiem":
-  //       return "bg-green-500 text-white";
-  //     case "zwolnienie lekarskie":
-  //       return "bg-pink-500 text-white";
-  //     default:
-  //       return "";
-  //   }
-  // };
-
-  const filteredUsers =
-    selectedDepartment === "dowolny"
-      ? users
-      : users.filter((user) => user.department === selectedDepartment);
+  const filteredEmployees = employees.filter((employee) => {
+    if (selectedDepartment === "dowolny") return true; // pokaż wszystkich pracowników, jeśli wybrano dowolny
+    return employee.department === selectedDepartment;
+  });
 
   return (
-    <div className="w-full flex flex-col  bg-box-color p-5 rounded-md gap-5">
-      <div>
-        <div className="text-xl text-main-color font-bold">Nieobecności</div>
-        <div className="text-sm text-secondary-color">
-          Tutaj sprawdzisz listę obecności pracowników Grupy PTWP
+    <div className="w-full flex flex-col  gap-5">
+      <div className="flex flex-col md:flex-row gap-5 justify-between">
+        <div>
+          <div className="text-xl text-main-color font-bold">Nieobecności</div>
+          <div className="text-sm text-secondary-color">
+            Tutaj sprawdzisz listę obecności pracowników Grupy PTWP
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-3 w-fit text-nowrap sm:ml-auto">
+          <AbsencePlannerBtn />
+          <MyAbsenceBtn />
         </div>
       </div>
 
-      {/* <LeaveTypeSelector
-        selectedLeaveType={selectedLeaveType}
-        setSelectedLeaveType={setSelectedLeaveType}
-      /> */}
       <div className="sm:ml-auto">
         <SearchInput
+          departmentOptions={departmentOptions}
           selectedDepartment={selectedDepartment}
           setSelectedDepartment={setSelectedDepartment}
         />
@@ -109,10 +68,8 @@ function Calendar() {
       />
       <DayGrid
         daysInMonth={daysInMonth}
-        users={filteredUsers}
+        employees={filteredEmployees}
         selectedDays={selectedDays}
-        // toggleDaySelection={toggleDaySelection}
-        // getLeaveColor={getLeaveColor}
       />
     </div>
   );

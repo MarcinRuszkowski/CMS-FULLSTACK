@@ -1,4 +1,8 @@
-function SearchInput({ selectedDepartment, setSelectedDepartment }) {
+function SearchInput({
+  selectedDepartment,
+  setSelectedDepartment,
+  departmentOptions,
+}) {
   return (
     <div className="flex flex-col">
       <label htmlFor="department" className="font-medium text-main-color">
@@ -9,10 +13,10 @@ function SearchInput({ selectedDepartment, setSelectedDepartment }) {
         onChange={(e) => setSelectedDepartment(e.target.value)}
         className="rounded-md hover:rounded-full p-2 mt-2 min-w-60 text-secondary-color bg-box-color border-2 border-main-color"
       >
-        <option value="dowolny">Dowolny dział</option>
-        <option value="IT">IT</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Księgowość">Księgowość</option>
+        <option value="dowolny">Dowolny</option>
+        {departmentOptions.map((option) => (
+          <option value={option}>{option}</option>
+        ))}
       </select>
     </div>
   );

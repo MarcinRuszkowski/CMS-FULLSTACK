@@ -1,13 +1,7 @@
 import { format, isToday } from "date-fns";
 import UserRow from "./UserRow";
 
-const DayGrid = ({
-  daysInMonth,
-  users,
-  selectedDays,
-  toggleDaySelection,
-  getLeaveColor,
-}) => {
+const DayGrid = ({ daysInMonth, employees }) => {
   const dayNames = ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Niedz"];
 
   return (
@@ -40,16 +34,9 @@ const DayGrid = ({
             );
           })}
         </div>
-        <div className="overflow-y-auto max-h-80 pt-3">
-          {users.map((user) => (
-            <UserRow
-              key={user.id}
-              user={user}
-              daysInMonth={daysInMonth}
-              selectedDays={selectedDays}
-              toggleDaySelection={toggleDaySelection}
-              getLeaveColor={getLeaveColor}
-            />
+        <div className="overflow-y-auto pt-3">
+          {employees.map((employee) => (
+            <UserRow employee={employee} daysInMonth={daysInMonth} />
           ))}
         </div>
       </div>

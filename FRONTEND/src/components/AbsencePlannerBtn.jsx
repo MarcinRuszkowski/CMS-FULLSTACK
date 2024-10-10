@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
-function MyAbsenceBtn() {
+function AbsencePlannerBtn() {
   return (
     <Link
-      to="/absence/detail"
+      to="/absence/absencePlanner"
       className="bg-main-color p-3  text-white font-medium rounded-md hover:rounded-full text-sm"
     >
-      Szczegóły Twoich nieobecności
+      Zaplanuj nieobecność
     </Link>
   );
 }
 
-export default MyAbsenceBtn;
+export default AbsencePlannerBtn;
