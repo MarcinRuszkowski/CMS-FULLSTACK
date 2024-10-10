@@ -7,7 +7,7 @@ dotenv.config();
 const uri = process.env.MONGO_URI;
 const dbName = "CMS_DB";
 
-const collectionName = "departments"; // nazwa nowej kolekcji
+const collectionName = "absence"; // nazwa nowej kolekcji
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -16,7 +16,7 @@ const client = new MongoClient(uri, {
 
 async function insertDataFromJson() {
   try {
-    const data = await readFile("departments.json", "utf8"); // plik JSON
+    const data = await readFile("absence.json", "utf8"); // plik JSON
     const records = JSON.parse(data);
 
     await client.connect();

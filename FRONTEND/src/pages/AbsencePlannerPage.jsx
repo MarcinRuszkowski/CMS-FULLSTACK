@@ -13,6 +13,7 @@ import {
 } from "date-fns";
 import MonthNavigator from "../components/calendar/MonthNavigator";
 import DayColorDesc from "../components/calendar/DayColorDesc";
+import AbsenceCounter from "../components/AbsenceCounter";
 
 function AbsencePlannerPage() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -89,7 +90,7 @@ function AbsencePlannerPage() {
       </div>
 
       <DayColorDesc />
-
+      <AbsenceCounter />
       <MonthNavigator
         currentDate={currentDate}
         handlePrevMonth={handlePrevMonth}
