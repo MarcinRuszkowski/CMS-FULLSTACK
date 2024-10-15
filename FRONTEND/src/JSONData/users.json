@@ -1,0 +1,112 @@
+[
+  {
+    "email": "test.test@ptwp.pl",
+    "password": "test",
+    "employee": "0"
+  },
+  {
+    "email": "jan.kowalski@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac213"
+  },
+  {
+    "email": "katarzyna.nowak@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac214"
+  },
+  {
+    "email": "hector.salamanca@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac21f"
+  },
+  {
+    "email": "john.abruzzi@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac220"
+  },
+  {
+    "email": "fernando.sucre@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac223"
+  },
+  {
+    "email": "walter.white@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac216"
+  },
+  {
+    "email": "jeffrey.dahmer@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac217"
+  },
+  {
+    "email": "tom.hanks@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac21b"
+  },
+  {
+    "email": "michael.scofield@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac21c"
+  },
+  {
+    "email": "hank.schreider@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac221"
+  },
+  {
+    "email": "jack.reacher@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac215"
+  },
+  {
+    "email": "thomas.shelby@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac218"
+  },
+  {
+    "email": "ekko.pies@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac21e"
+  },
+  {
+    "email": "lincoln.burrows@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac222"
+  },
+  {
+    "email": "karol.wojtyla@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac224"
+  },
+  {
+    "email": "marcin.najman@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac225"
+  },
+  {
+    "email": "teodor.backwell@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac226"
+  },
+  {
+    "email": "artur.shelby@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac219"
+  },
+  {
+    "email": "frank.murphy@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac21a"
+  },
+  {
+    "email": "hugh.hefner@ptwp.pl",
+    "password": "password123",
+    "employee": "670502f240c39c2a983ac21d"
+  },
+  {
+    "email": "patrick.bateman@ptwp.pl",
+    "password": "password123",
+    "employee": "67052c993e9bfe9b65532944"
+  }
+]

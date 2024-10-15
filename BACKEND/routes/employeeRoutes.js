@@ -4,7 +4,6 @@ import {
   getAllEmployees,
   addEmployee,
 } from "../controllers/employeeController.js";
-import auth from "../middleware/auth.js";
 
 const router = express.Router();
 
@@ -19,7 +18,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.get("/", auth, getAllEmployees);
-router.post("/", auth, upload.single("profileImage"), addEmployee);
+router.get("/", getAllEmployees);
+router.post("/", upload.single("profileImage"), addEmployee);
 
 export default router;
