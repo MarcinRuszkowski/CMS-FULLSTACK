@@ -4,11 +4,13 @@ import {
   getAllEmployees,
   addEmployee,
 } from "../controllers/employeeController.js";
+import auth from "../middleware/auth.js";
 
 const router = express.Router();
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/profileImages/"); // folder w którym zapisywane są obrazy
+    cb(null, "uploads/profileImages/"); // folder, w którym zapisywane są obrazy
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}_${file.originalname}`);
@@ -17,7 +19,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.get("/", getAllEmployees);
-router.post("/", upload.single("profileImage"), addEmployee);
+router.get("/", auth, getAllEmployees);
+router.post("/", auth, upload.single("profileImage"), addEmployee);
 
 export default router;

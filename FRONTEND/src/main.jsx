@@ -20,7 +20,9 @@ import AdminPanel from "./pages/AdminPanel";
 import AddEmployeePage from "./pages/AddEmployeePage";
 import AbsencePlannerPage from "./pages/AbsencePlannerPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import LoginPage from "./pages/LoginPage";
 import Layout from "./layouts/Layout";
+import ThemeController from "./layouts/ThemeController";
 
 const router = createBrowserRouter([
   {
@@ -142,6 +144,19 @@ const router = createBrowserRouter([
       <Layout>
         <AddEmployeePage />
       </Layout>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <div className="relative">
+        <div className="absolute top-5 right-8">
+          <ThemeController />
+        </div>
+        <div className="absolute top-20 w-full">
+          <LoginPage />
+        </div>
+      </div>
     ),
   },
 ]);

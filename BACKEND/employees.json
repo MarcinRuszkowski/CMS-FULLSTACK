@@ -1,0 +1,272 @@
+[{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac213"
+  },
+  "name": "Jan Kowalski",
+  "company": "PTWP ON-LINE",
+  "job": "programista",
+  "department": "Dział IT",
+  "city": "Katowice",
+  "email": "jan.kowalski@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac214"
+  },
+  "name": "Katarzyna Nowak",
+  "company": "PTWP S.A.",
+  "job": "księgowość",
+  "department": "Dział Księgowości",
+  "city": "Katowice",
+  "email": "katarzyna.nowak@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac21f"
+  },
+  "name": "Hector Salamanca",
+  "company": "PTWP S.A.",
+  "job": "kierownik",
+  "department": "Dział Grafiki",
+  "city": "Warszawa",
+  "email": "hector.salamanca@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac220"
+  },
+  "name": "John Abruzzi",
+  "company": "PTWP S.A.",
+  "job": "ochroniarz",
+  "department": "Dział Ochrony",
+  "city": "Białystok",
+  "email": "john.abruzzi@ptwp.pl",
+  "phone": [
+    789123456
+  ]
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac223"
+  },
+  "name": "Fernando Sucre",
+  "company": "PTWP S.A.",
+  "job": "dziennikarz",
+  "department": "Dział Redakcji",
+  "city": "Białystok",
+  "email": "fernando.sucre@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac216"
+  },
+  "name": "Walter White",
+  "company": "PTWP S.A.",
+  "job": "HRowiec",
+  "department": "Dział HR i kadr",
+  "city": "Warszawa",
+  "email": "walter.white@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac217"
+  },
+  "name": "Jeffrey Dahmer",
+  "company": "PTWP S.A.",
+  "job": "programista",
+  "department": "Dział IT",
+  "city": "Białystok",
+  "email": "jeffrey.dahmer@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac21b"
+  },
+  "name": "Tom Hanks",
+  "company": "PTWP EVENT CENTER",
+  "job": "Specjalista ds. Eventów",
+  "department": "Dział IT",
+  "city": "Katowice",
+  "email": "tom.hanks@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac21c"
+  },
+  "name": "Michael Scofield",
+  "company": "PTWP S.A.",
+  "job": "grafik",
+  "department": "Dział Grafiki",
+  "city": "Katowice",
+  "email": "michael.scofield@ptwp.pl",
+  "phone": [
+    321654987
+  ]
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac221"
+  },
+  "name": "Hank Schreider",
+  "company": "PTWP ON-LINE",
+  "job": "ochroniarz",
+  "department": "Dział Ochrony",
+  "city": "Katowice",
+  "email": "hank.schreider@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac215"
+  },
+  "name": "Jack Reacher",
+  "company": "PTWP S.A.",
+  "job": "kierownik",
+  "department": "Dział IT",
+  "city": "Warszawa",
+  "email": "jack.reacher@ptwp.pl",
+  "phone": [
+    123456789
+  ]
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac218"
+  },
+  "name": "Thomas Shelby",
+  "company": "PTWP S.A.",
+  "job": "administrator",
+  "department": "Dział Administracji",
+  "city": "Warszawa",
+  "email": "thomas.shelby@ptwp.pl",
+  "phone": [
+    987654321
+  ]
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac21e"
+  },
+  "name": "Ekko Pies",
+  "company": "PTWP S.A.",
+  "job": "bramkarz",
+  "department": "Dział Ochrony",
+  "city": "Katowice",
+  "email": "ekko.pies@ptwp.pl",
+  "phone": [
+    654321987
+  ]
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac222"
+  },
+  "name": "Lincoln Burrows",
+  "company": "PTWP ON-LINE",
+  "job": "grafik",
+  "department": "Dział Grafiki",
+  "city": "Katowice",
+  "email": "lincoln.burrows@ptwp.pl",
+  "phone": [
+    234567890
+  ]
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac224"
+  },
+  "name": "Karol Wojtyła",
+  "company": "PTWP EVENT CENTER",
+  "job": "administracja",
+  "department": "Dział Administracji",
+  "city": "Katowice",
+  "email": "karol.wojtyla@ptwp.pl",
+  "phone": [
+    345678901
+  ]
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac225"
+  },
+  "name": "Marcin Najman",
+  "company": "PTWP ON-LINE",
+  "job": "informatyk",
+  "department": "Dział IT",
+  "city": "Białystok",
+  "email": "marcin.najman@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac226"
+  },
+  "name": "Teodor Backwell",
+  "company": "PTWP S.A.",
+  "job": "przedstawiciel handlowy",
+  "department": "Dział Marketingu",
+  "city": "Katowice",
+  "email": "teodor.backwell@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac219"
+  },
+  "name": "Artur Shelby",
+  "company": "PTWP S.A.",
+  "job": "programista",
+  "department": "Dział IT",
+  "city": "Katowice",
+  "email": "artur.shelby@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac21a"
+  },
+  "name": "Frank Murphy",
+  "company": "PTWP ON-LINE",
+  "job": "informatyk",
+  "department": "Dział IT",
+  "city": "Białystok",
+  "email": "frank.murphy@ptwp.pl",
+  "phone": [
+    456789123
+  ]
+},
+{
+  "_id": {
+    "$oid": "670502f240c39c2a983ac21d"
+  },
+  "name": "Hugh Hefner",
+  "company": "PTWP S.A.",
+  "job": "Dziennikarz",
+  "department": "Dział Redakcji",
+  "city": "Białystok",
+  "email": "hugh.hefner@ptwp.pl",
+  "phone": []
+},
+{
+  "_id": {
+    "$oid": "67052c993e9bfe9b65532944"
+  },
+  "name": "Patrick Bateman",
+  "company": "PTWP ON-LINE",
+  "job": "Dyrektor",
+  "department": "Dział Marketingu",
+  "city": "Katowice",
+  "email": "patrick.bateman@ptwp.pl",
+  "phone": [
+    333333333
+  ],
+  "profileImage": null,
+  "__v": 0
+}]

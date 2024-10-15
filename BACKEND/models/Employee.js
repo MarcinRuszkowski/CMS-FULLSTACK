@@ -8,7 +8,7 @@ const employeeSchema = new mongoose.Schema({
   city: { type: String, required: true },
   email: { type: String, required: true },
   phone: [{ type: Number, required: false }],
-  profileImage: { type: String },
+  profileImage: { type: String, default: null },
 });
 
 const Employee = mongoose.model("Employee", employeeSchema);
