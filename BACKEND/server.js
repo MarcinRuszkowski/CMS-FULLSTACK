@@ -4,6 +4,9 @@ import cors from "cors";
 import path from "path";
 import connectDB from "./config/db.js";
 
+import signupRoutes from "./routes/signupRoutes.js";
+import loginRoutes from "./routes/loginRoutes.js";
+import authenticatedRoutes from "./routes/authenticatedRoutes.js";
 import employeeRoutes from "./routes/employeeRoutes.js";
 import eventRoutes from "./routes/eventRoutes.js";
 import departmentRoutes from "./routes/departmentRoutes.js";
@@ -19,7 +22,6 @@ connectDB();
 // Middleware do parsowania JSON i CORS
 app.use(express.json());
 app.use(cors());
-
 app.use(express.static(path.join(path.resolve(), "..", "FRONTEND", "dist")));
 app.use(
   "/uploads",
@@ -27,6 +29,9 @@ app.use(
 );
 
 //API
+app.use("/api/user", signupRoutes);
+app.use("/api/auth", loginRoutes);
+app.use("/api", authenticatedRoutes);
 app.use("/api/employees", employeeRoutes);
 app.use("/api/eventsCalendar", eventRoutes);
 app.use("/api/departments", departmentRoutes);

@@ -1,9 +1,9 @@
-import { MdEmail } from "react-icons/md";
-import { FaKey } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { FaKey } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
-function LoginPage() {
+function SignupPage() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -21,7 +21,7 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login/", {
+      const response = await fetch("http://localhost:5000/api/user/register/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,15 +29,12 @@ function LoginPage() {
         body: JSON.stringify(formData),
       });
       const result = await response.json();
-      console.log(result.user.email);
+      console.log(result);
 
-      if (result.user) {
-        navigate("/");
-        const user = JSON.stringify(result.user);
-        localStorage.setItem("user", user);
-        localStorage.setItem("token", result.token);
+      if (result.user._id) {
+        navigate("/login");
       } else {
-        console.error("Logowanie nie powiodło się");
+        console.error("Rejestracja nie powiodła się");
       }
     } catch (error) {
       console.error(error.message);
@@ -52,12 +49,11 @@ function LoginPage() {
             htmlFor=""
             className="font-bold text-4xl text-main-color w-full text-start"
           >
-            Zaloguj się
+            Zarejestruj się
           </label>
           <label className="input  flex items-center gap-2 text-secondary-color bg-bg-color border-2 border-main-color py-1 px-3 leading-10 rounded-md hover:rounded-full w-full">
             <MdEmail className="text-secondary-color" />
             <input
-              required
               type="text"
               className="grow"
               placeholder="Email"
@@ -70,14 +66,13 @@ function LoginPage() {
           <label className="input  flex items-center gap-2 text-secondary-color bg-bg-color border-2 border-main-color py-1 px-3 leading-10 rounded-md hover:rounded-full w-full">
             <FaKey className="text-secondary-color" />
             <input
-              required
               type="password"
-              className="grow"
+              className="grow bg-bg-color"
               placeholder="Hasło"
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              autoComplete="current-password"
+              autoComplete="new-password"
             />
           </label>
 
@@ -85,7 +80,7 @@ function LoginPage() {
             className="bg-main-color py-1 px-3 text-white leading-10 rounded-md hover:rounded-full w-full"
             onClick={handleSubmit}
           >
-            Zaloguj się
+            Zarejestruj się
           </button>
         </form>
       </section>
@@ -93,4 +88,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignupPage;
