@@ -18,6 +18,7 @@ function Breadcrumbs() {
     detail: "Szczegóły",
     adminPanel: "Panel Admina",
     addEmployee: "Dodawanie pracownika",
+    editEmployee: "Edycja pracownika",
     absencePlanner: "Planowanie nieobecności",
   };
 

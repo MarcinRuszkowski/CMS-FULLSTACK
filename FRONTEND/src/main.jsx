@@ -18,6 +18,7 @@ import EmployeesPage from "./pages/EmployeesPage";
 import AboutCompanyPage from "./pages/AboutCompanyPage";
 import AdminPanel from "./pages/AdminPanel";
 import AddEmployeePage from "./pages/AddEmployeePage";
+import EditEmployeePage from "./pages/EditEmployeePage";
 import AbsencePlannerPage from "./pages/AbsencePlannerPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/LoginPage";
@@ -152,6 +153,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <AddEmployeePage />
+      </Layout>
+    ),
+  },
+  {
+    path: "/adminPanel/editEmployee",
+    element: (
+      <Layout>
+        <EditEmployeePage />
       </Layout>
     ),
   },

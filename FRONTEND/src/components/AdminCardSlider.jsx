@@ -36,20 +36,21 @@ function AdminCardSlider() {
           <AdminCard
             linkTo="/adminPanel/addEmployee"
             title="Pracownicy"
-            desc="Dodaj lub edytuj pracownika"
+            desc="Dodaj pracownika"
             icon={<HiUserGroup />}
             color="bg-yellow-500 border-yellow-600"
           />
         </SwiperSlide>
         <SwiperSlide>
           <AdminCard
-            linkTo="/adminPanel"
-            title="???????"
-            desc="??? ???????????? ????? ??? ???"
-            icon={<MdQuestionMark />}
+            linkTo="/adminPanel/editEmployee"
+            title="Pracownicy"
+            desc="Edytuj pracownika"
+            icon={<HiUserGroup />}
             color="bg-blue-500 border-blue-600"
           />
         </SwiperSlide>
+
         <SwiperSlide>
           <AdminCard
             linkTo="/adminPanel"

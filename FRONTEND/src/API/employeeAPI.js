@@ -25,3 +25,17 @@ export const createEmployee = async (employeeData) => {
     throw error;
   }
 };
+
+export const updateEmployee = async (id, updatedData) => {
+  try {
+    const response = await axios.put(`${API_URL}/${id}`, updatedData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error updating employee", error);
+    throw error;
+  }
+};
