@@ -1,6 +1,5 @@
 import { IoMdHome, IoIosArrowForward } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
-import AddEmployeePage from "../pages/AddEmployeePage";
 
 function Breadcrumbs() {
   const location = useLocation();
@@ -36,14 +35,18 @@ function Breadcrumbs() {
       };
     });
 
+  if (pages.length > 0 && pages[0].name === "Dashboard") {
+    pages.shift();
+  }
+
   return (
     <nav aria-label="Breadcrumb" className="flex">
       <ol role="list" className="flex items-center space-x-4">
         <li>
           <div>
             <Link
-              to="/"
-              className="text-secondary-color hover:text-main-color flex flex-row gap-1"
+              to="/dashboard"
+              className="text-secondary-color hover:text-main-color flex"
             >
               <IoMdHome aria-hidden="true" className="h-5 w-5 flex-shrink-0" />
             </Link>

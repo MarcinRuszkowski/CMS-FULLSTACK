@@ -4,6 +4,7 @@ import News from "../components/News";
 import Stats from "../components/Stats";
 import UpcomingEvents from "../components/UpcomingEvents";
 import { useEffect, useState } from "react";
+import { getUserData } from "../API/userAPI";
 
 function DashboardPage() {
   const [user, setUser] = useState(null);
@@ -14,20 +15,11 @@ function DashboardPage() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/user", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const result = await response.json();
-
-        if (response.ok) {
-          setUser(result);
-        } else {
-          console.error("Błąd pobierania użytkownika:", result.message);
-        }
+        const userData = await getUserData(token);
+        setUser(userData);
       } catch (error) {
-        console.error("Błąd połączenia:", error.message);
+        console.error("Błąd pobierania użytkownika:", error.message);
+        navigate("/login");
       }
     };
 

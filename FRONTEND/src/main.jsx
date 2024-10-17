@@ -36,6 +36,14 @@ const router = createBrowserRouter([
     errorElement: <NotFoundPage />,
   },
   {
+    path: "/dashboard",
+    element: (
+      <Layout>
+        <DashboardPage />
+      </Layout>
+    ),
+  },
+  {
     path: "/employees",
     element: (
       <Layout>
