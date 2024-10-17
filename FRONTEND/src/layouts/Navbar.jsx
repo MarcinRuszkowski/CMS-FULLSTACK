@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div className="flex flex-row justify-between mx-5 py-5">
       <Breadcrumbs />
-      <div className="flex flex-row gap-5 items-center">
+      <div className="flex flex-col-reverse md:flex-row gap-5 items-center">
         <LogoutBtn />
         <ThemeController />
       </div>
