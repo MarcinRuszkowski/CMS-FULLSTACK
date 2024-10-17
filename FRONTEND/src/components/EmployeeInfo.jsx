@@ -6,11 +6,23 @@ function EmployeeInfo({
   job = "nieudacznik",
   department = "nieudacznictwo",
   city = "city",
-}) {
+  profileImage,
+}) 
+
+{
+  console.log(profileImage);
   return (
-    <div className="flex flex-row  p-5 border-b-2 items-center justify-between">
+    <div className="flex flex-row p-5 border-b-2 items-center justify-between">
       <div className="flex items-center gap-5">
-        <FaRegUserCircle className="w-16 h-16" />
+        {profileImage ? (
+          <img
+            src={profileImage}
+            alt={`${name}'s profile`}
+            className="w-16 h-16 rounded-full"
+          />
+        ) : (
+          <FaRegUserCircle className="w-16 h-16" />
+        )}
         <div className="flex flex-col">
           <p className="font-bold text-secondary-color">{name}</p>
           <div className="flex flex-col md:flex-row text-main-color gap-2">

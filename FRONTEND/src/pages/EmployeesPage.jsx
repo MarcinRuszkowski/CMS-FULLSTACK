@@ -80,18 +80,21 @@ function EmployeesPage() {
       />
 
       <div className="overflow-y-auto max-h-screen">
-        {filteredEmployees.map((employee) => {
-          return (
-            <EmployeeInfo
-              key={employee._id}
-              name={employee.name}
-              company={employee.company}
-              job={employee.job}
-              department={employee.department}
-              city={employee.city}
-            />
-          );
-        })}
+        {filteredEmployees.map((employee) => (
+          <EmployeeInfo
+            key={employee._id}
+            name={employee.name}
+            company={employee.company}
+            job={employee.job}
+            department={employee.department}
+            city={employee.city}
+            profileImage={
+              employee.profileImage
+                ? `http://localhost:5000/uploads/${employee.profileImage}`
+                : null
+            }
+          />
+        ))}
       </div>
     </section>
   );
