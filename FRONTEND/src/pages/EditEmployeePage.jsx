@@ -67,11 +67,13 @@ function EditEmployeePage() {
       setJobTitle(selected.job || "");
       setEmail(selected.email || "");
       setPhone(selected.phone || "");
-      setProfileImage(selected.profileImage || null);
-      setImageTitle(
+      setProfileImage(
         selected.profileImage
-          ? selected.profileImage.name
-          : "Nie wybrano zdjęcia"
+          ? `http://localhost:5000/uploads/${selected.profileImage}`
+          : null
+      );
+      setImageTitle(
+        selected.profileImage ? selected.profileImage : "Nie wybrano zdjęcia"
       );
     }
   };
@@ -122,7 +124,7 @@ function EditEmployeePage() {
     formData.append("department", selectedDepartment);
     formData.append("job", jobTitle);
     formData.append("email", email);
-    if (profileImage) {
+    if (profileImage && typeof profileImage === "object") {
       formData.append("profileImage", profileImage);
     }
     if (phone) {
@@ -136,7 +138,7 @@ function EditEmployeePage() {
       );
       console.log("Zaktualizowano pracownika:", updatedEmployee);
 
-      // Wyczyść formularz i schowaj alerty
+      // Clear the form and hide alerts
       setEmployeeName("");
       setSelectedCompany("");
       setSelectedCity("");
@@ -151,7 +153,6 @@ function EditEmployeePage() {
       setShowErrorAlert(false);
       setSelectedEmployee(null);
 
-      // Pokaż alert o sukcesie na 3 sekundy
       setShowAlert(true);
       setTimeout(() => setShowAlert(false), 3000);
     } catch (error) {
@@ -159,7 +160,6 @@ function EditEmployeePage() {
     }
   };
 
-  // Handle input changes and remove validation errors
   const handleInputChange = (value, setter, errorField) => {
     setter(value);
     if (value) {
@@ -170,7 +170,6 @@ function EditEmployeePage() {
     }
   };
 
-  // Handle image file change
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -186,10 +185,10 @@ function EditEmployeePage() {
           <div className="flex flex-col gap-2">
             <div className="text-secondary-color">Wybierz pracownika:</div>
             <select
-              className="w-full mb-5 py-1 px-2 bg-bg-color rounded-md hover:rounded-full border-2 border-main-color text-secondary-color"
+              className="w-full rounded-md p-3 hover:rounded-full bg-bg-color border-2 border-main-color text-secondary-color mb-5"
               onChange={(e) => handleEmployeeSelect(e.target.value)}
             >
-              <option value="">Imie Nazwisko</option>
+              <option value="">Imię Nazwisko</option>
               {employeesData.map((employee, index) => (
                 <option key={index} value={employee.name}>
                   {employee.name}
@@ -244,7 +243,7 @@ function EditEmployeePage() {
           type="text"
           className="w-full rounded-md p-3 hover:rounded-full bg-bg-color border-2 border-main-color text-secondary-color"
           placeholder="Stanowisko"
-          value={jobTitle} // Auto-fill job title
+          value={jobTitle}
           onChange={(e) =>
             handleInputChange(e.target.value, setJobTitle, "jobTitle")
           }
@@ -273,7 +272,10 @@ function EditEmployeePage() {
             className="hidden"
           />
           <div className="bg-bg-color w-fit p-2 rounded hover:rounded-full">
-            {imageTitle}
+            {imageTitle ||
+              (profileImage
+                ? profileImage.split("/").pop()
+                : "Nie wybrano zdjęcia")}
           </div>
         </label>
 
@@ -285,7 +287,6 @@ function EditEmployeePage() {
         </button>
       </div>
 
-      {/* problem ze zdjeciem */}
       <div className="flex flex-1">
         <NewEmployeeCard
           name={employeeName}
@@ -295,7 +296,7 @@ function EditEmployeePage() {
           job={jobTitle}
           email={email}
           phone={phone}
-          image={profileImage && URL.createObjectURL(profileImage)}
+          image={profileImage}
         />
       </div>
 
