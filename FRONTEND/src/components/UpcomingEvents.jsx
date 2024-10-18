@@ -59,7 +59,7 @@ function UpcomingEvents() {
                   index % 2 === 0 ? "timeline-start" : "timeline-end"
                 } ${
                   addGreenBorder
-                    ? "border-green-500 text-green-500"
+                    ? "border-pink-700 text-pink-700"
                     : isFutureEvent
                     ? " border-secondary-color"
                     : "border-main-color"

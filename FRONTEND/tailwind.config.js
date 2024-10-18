@@ -10,6 +10,7 @@ export default {
         "secondary-color": "var(--secondary-color)",
         "bg-color": "var(--bg-color)",
         "box-color": "var(--box-color)",
+        "card-color": "var(--card-color)",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],

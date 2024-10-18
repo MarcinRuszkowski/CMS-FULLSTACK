@@ -17,12 +17,14 @@ body {
   --secondary-color: rgb(0, 0, 0);
   --bg-color: rgb(226, 232, 240);
   --box-color: rgb(255, 255, 255);
+  --card-color: rgb(0, 0, 0);
 }
 
 /* Motyw ciemny */
 [data-theme="dark"] {
-  --main-color: rgb(222, 42, 201);
-  --secondary-color: rgb(232, 225, 209);
-  --bg-color: rgb(17, 54, 85);
-  --box-color: rgb(10, 33, 51);
+  --main-color: rgb(17, 153, 163);
+  --secondary-color: rgb(255, 255, 255);
+  --bg-color: rgb(33, 37, 43);
+  --box-color: rgb(42, 46, 55);
+  --card-color: rgb(255, 255, 255);
 }

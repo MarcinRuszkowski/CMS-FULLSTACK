@@ -8,6 +8,7 @@ import { FaSuitcaseRolling } from "react-icons/fa6";
 import { GiPublicSpeaker } from "react-icons/gi";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { IoCalendar } from "react-icons/io5";
+import img from '../assets/PTWPlogo.png'
 
 
 import Card from "./Card";
@@ -60,7 +61,7 @@ function CardsPanel() {
       />
       <Card
         linkTo="/aboutCompany"
-        icon="logoPTWP"
+        icon={<img src={img} className="w-48 mb-1"/>}
         title="o firmie"
         color="border-sky-600 text-sky-600"
       />
