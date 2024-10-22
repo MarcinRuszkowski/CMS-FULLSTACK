@@ -30,7 +30,7 @@ function CardsPanel({ userRole }) {
       <Card
         icon={<GiPublicSpeaker />}
         title="rezerwuj salę"
-        color="border-cyan-400 text-cyan-400"
+        color="border-cyan-400 text-cyan-400 cursor-not-allowed"
       />
       <Card
         linkTo="/absence"
@@ -41,22 +41,22 @@ function CardsPanel({ userRole }) {
       <Card
         icon={<TbError404 />}
         title="zgłoś awarię portalu / cms"
-        color="border-orange-500 text-orange-500"
+        color="border-orange-500 text-orange-500 cursor-not-allowed"
       />
       <Card
         icon={<ImVideoCamera />}
         title="wynajmij dział foto"
-        color="border-emerald-600 text-emerald-600"
+        color="border-emerald-600 text-emerald-600 cursor-not-allowed"
       />
       <Card
         icon={<FaSuitcaseRolling />}
         title="zgłoś / rozlicz delegację"
-        color="border-purple-400 text-purple-400"
+        color="border-purple-400 text-purple-400 cursor-not-allowed"
       />
       <Card
         icon={<FaCar />}
         title="rezerwuj pojazd"
-        color="border-pink-400 text-pink-400"
+        color="border-pink-400 text-pink-400 cursor-not-allowed"
       />
       <Card
         linkTo="/aboutCompany"
