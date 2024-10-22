@@ -8,12 +8,11 @@ import { FaSuitcaseRolling } from "react-icons/fa6";
 import { GiPublicSpeaker } from "react-icons/gi";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { IoCalendar } from "react-icons/io5";
-import img from '../assets/PTWPlogo.png'
-
+import img from "../assets/PTWPlogo.png";
 
 import Card from "./Card";
 
-function CardsPanel() {
+function CardsPanel({ userRole }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 place-items-center w-full">
       <Card
@@ -61,16 +60,18 @@ function CardsPanel() {
       />
       <Card
         linkTo="/aboutCompany"
-        icon={<img src={img} className="w-48 mb-1"/>}
+        icon={<img src={img} className="w-48 mb-1" />}
         title="o firmie"
         color="border-sky-600 text-sky-600"
       />
-      <Card
-        linkTo="/adminPanel"
-        icon={<MdAdminPanelSettings />}
-        title="Admin"
-        color="border-emerald-200 text-emerald-200"
-      />
+      {userRole === "admin" && (
+        <Card
+          linkTo="/adminPanel"
+          icon={<MdAdminPanelSettings />}
+          title="Admin"
+          color="border-emerald-200 text-emerald-200"
+        />
+      )}
       <Card
         linkTo="/eventsCalendar"
         icon={<IoCalendar />}

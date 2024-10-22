@@ -59,7 +59,7 @@ function DashboardPage() {
           {employeeFirstName || "użytkowniku"}
         </span>
       </div>
-      <CardsPanel />
+      <CardsPanel userRole={user?.role} />
       <News />
       <Stats />
       <UpcomingEvents />
