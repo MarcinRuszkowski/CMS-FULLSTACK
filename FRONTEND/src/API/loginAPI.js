@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/auth/login";
+const API_URL = "http://localhost:5050/api/auth/login";
 
 export const loginUser = async (formData) => {
   try {
