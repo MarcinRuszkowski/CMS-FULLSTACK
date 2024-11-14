@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAllEmployees, updateEmployee } from "../API/employeeAPI";
+import { getEmployeeProfileImage } from "../API/uploadsAPI";
 import Select from "../components/Select";
 import NewEmployeeCard from "../components/NewEmployeeCard";
 import AlertSuccess from "../components/AlertSuccess";
@@ -54,10 +55,11 @@ function EditEmployeePage() {
     setDepartmentOptions(Array.from(departments));
   }, [employeesData]);
 
-  const handleEmployeeSelect = (employeeName) => {
+  const handleEmployeeSelect = async (employeeName) => {
     const selected = employeesData.find(
       (employee) => employee.name === employeeName
     );
+
     if (selected) {
       setSelectedEmployee(selected);
       setEmployeeName(selected.name);
@@ -67,14 +69,20 @@ function EditEmployeePage() {
       setJobTitle(selected.job || "");
       setEmail(selected.email || "");
       setPhone(selected.phone || "");
-      setProfileImage(
-        selected.profileImage
-          ? `http://localhost:5000/uploads/${selected.profileImage}`
-          : null
-      );
-      setImageTitle(
-        selected.profileImage ? selected.profileImage : "Nie wybrano zdjęcia"
-      );
+
+      if (selected.profileImage) {
+        try {
+          const imageUrl = await getEmployeeProfileImage(selected.profileImage);
+          setProfileImage(imageUrl);
+          setImageTitle(selected.profileImage);
+        } catch (error) {
+          console.error("Error fetching profile image:", error);
+          setProfileImage(null);
+        }
+      } else {
+        setProfileImage(null);
+        setImageTitle("Nie wybrano zdjęcia");
+      }
     }
   };
 
@@ -138,7 +146,6 @@ function EditEmployeePage() {
       );
       console.log("Zaktualizowano pracownika:", updatedEmployee);
 
-      // Clear the form and hide alerts
       setEmployeeName("");
       setSelectedCompany("");
       setSelectedCity("");
@@ -173,7 +180,7 @@ function EditEmployeePage() {
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setProfileImage(file);
+      setProfileImage(URL.createObjectURL(file));
       setImageTitle(file.name);
     }
   };
@@ -302,7 +309,7 @@ function EditEmployeePage() {
 
       {showAlert && (
         <div className="absolute bottom-8 right-2">
-          <AlertSuccess message="Dodano użytkownika" />
+          <AlertSuccess message="Zapisano zmiany" />
         </div>
       )}
 

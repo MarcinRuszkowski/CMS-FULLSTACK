@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAllEmployees } from "../API/employeeAPI";
+import { getEmployeeProfileImage } from "../API/uploadsAPI";
 import EmployeesFinder from "../components/EmployeesFinder";
 import EmployeeInfo from "../components/EmployeeInfo";
 
@@ -15,6 +16,7 @@ function EmployeesPage() {
   const [companyOptions, setCompanyOptions] = useState([]);
   const [locationOptions, setLocationOptions] = useState([]);
   const [departmentOptions, setDepartmentOptions] = useState([]);
+  const [employeesImages, setEmployeesImages] = useState({});
 
   useEffect(() => {
     const fetchEmployees = async () => {
@@ -43,6 +45,27 @@ function EmployeesPage() {
     setCompanyOptions(Array.from(companies));
     setLocationOptions(Array.from(locations));
     setDepartmentOptions(Array.from(departments));
+  }, [employeesData]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const images = {};
+      for (const employee of employeesData) {
+        if (employee.profileImage) {
+          try {
+            const imageUrl = await getEmployeeProfileImage(
+              employee.profileImage
+            );
+            images[employee._id] = imageUrl;
+          } catch (error) {
+            console.error("Error fetching profile image:", error);
+          }
+        }
+      }
+      setEmployeesImages(images);
+    };
+
+    fetchImages();
   }, [employeesData]);
 
   const filteredEmployees = employeesData.filter((employee) => {
@@ -88,11 +111,7 @@ function EmployeesPage() {
             job={employee.job}
             department={employee.department}
             city={employee.city}
-            profileImage={
-              employee.profileImage
-                ? `http://localhost:5000/uploads/${employee.profileImage}`
-                : null
-            }
+            profileImage={employeesImages[employee._id] || null}
           />
         ))}
       </div>

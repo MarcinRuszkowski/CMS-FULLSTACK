@@ -7,9 +7,7 @@ function EmployeeInfo({
   department = "nieudacznictwo",
   city = "city",
   profileImage,
-}) 
-
-{
+}) {
   console.log(profileImage);
   return (
     <div className="flex flex-row p-5 border-b-2 items-center justify-between">

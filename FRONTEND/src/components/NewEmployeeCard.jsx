@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SkeletonCircle from "./SkeletonCircle";
 
 function NewEmployeeCard({
