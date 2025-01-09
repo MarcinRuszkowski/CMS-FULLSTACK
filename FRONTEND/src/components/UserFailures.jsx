@@ -5,7 +5,7 @@ function UserFailures({
   name = "Imie Nazwisko",
   mobile = "+48 000 000 000",
   phone = "48 32 00 00 000",
-  email = "imie.nazwisko@ptwp.pl",
+  email = "imie.nazwisko@mail.pl",
 }) {
   const [isActive, setIsActive] = useState(false);
 

@@ -9,9 +9,9 @@ function News() {
 
       <NewInfo
         title="Nowy pracownik w Dziale Komunikacji"
-        message="Do grona pracowników Grupy PTWP dołączyła Imie Nazwisko na stanowisku Specjalisty ds. komunikacji"
+        message="Do grona pracowników Grupy COMPANY dołączyła Imie Nazwisko na stanowisku Specjalisty ds. komunikacji"
       />
-      <NewInfo title="Ekko pies w PTWP" />
+      <NewInfo title="Ekko pies w COMPANY" />
       <NewInfo message="message message message" />
     </div>
   );

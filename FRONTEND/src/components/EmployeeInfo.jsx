@@ -2,7 +2,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 
 function EmployeeInfo({
   name = "IMIE NAZWISKO",
-  company = "PTWP",
+  company = "COMPANY",
   job = "nieudacznik",
   department = "nieudacznictwo",
   city = "city",

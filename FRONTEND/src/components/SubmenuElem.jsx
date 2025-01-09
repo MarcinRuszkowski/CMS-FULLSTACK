@@ -7,7 +7,7 @@ function SubmenuElem({ title = "Nazwa Działu" }) {
     "Stosowane umowy",
     "Pierwsze kroki",
     "Delegacje",
-    "fiut",
+ 
   ];
 
   const [isOpen, setIsOpen] = useState(false);

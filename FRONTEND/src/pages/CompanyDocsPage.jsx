@@ -21,7 +21,7 @@ function CompanyDocsPage() {
 
   return (
     <section className="flex flex-col gap-5 mx-5">
-      <p className="text-3xl font-bold text-secondary-color">PTWP S.A.</p>
+      <p className="text-3xl font-bold text-secondary-color">COMPANY S.A.</p>
       <DocsCategory category="Rejestry" documents={documentsForCategory1} />
       <DocsCategory category="Umowy" documents={documentsForCategory2} />
       <DocsCategory category="Sprawozdania" documents={documentsForCategory3} />

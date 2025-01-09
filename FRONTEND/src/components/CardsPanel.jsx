@@ -8,7 +8,7 @@ import { FaSuitcaseRolling } from "react-icons/fa6";
 import { GiPublicSpeaker } from "react-icons/gi";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { IoCalendar } from "react-icons/io5";
-import img from "../assets/PTWPlogo.png";
+import img from "../assets/COMPANYlogo.png";
 
 import Card from "./Card";
 

@@ -8,7 +8,7 @@ function AbsenceInfos() {
         <div className="mt-4 sm:mt-0 sm:pt-1 sm:text-left">
           <p className="text-main-color text-xl  mb-2">Moje obecności</p>
           <p className="text-xs font-medium text-gray-600">
-            Tutaj sprawdzisz listę obecności pracowników Grupy PTWP
+            Tutaj sprawdzisz listę obecności pracowników Grupy COMPANY
           </p>
         </div>
       </div>

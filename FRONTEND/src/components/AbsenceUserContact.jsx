@@ -3,7 +3,7 @@ import { MdContactPhone } from "react-icons/md";
 import { IoIosMail } from "react-icons/io";
 
 function AbsenceUserContact({
-  email = "imie.nazwisko@ptwp.pl",
+  email = "imie.nazwisko@mail.pl",
   mobile = "000 000 000",
   phone = "32 000 00 00",
 }) {

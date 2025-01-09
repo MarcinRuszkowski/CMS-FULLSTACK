@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Doc({
   linkTo,
   iconColor = "text-main-color",
-  companyName = "PTWP",
+  companyName = "COMPANY",
   docsAmount = 0,
 }) {
   return (

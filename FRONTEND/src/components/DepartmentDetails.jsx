@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllEmployees } from "../API/employeeAPI"; // Pobieranie danych o pracownikach
+import { getAllEmployees } from "../API/employeeAPI";
 import TabWithContent from "./TabWithContent";
 import Skeleton5 from "./Skeleton5";
 
@@ -7,28 +7,25 @@ function DepartmentDetails({ department }) {
   const [employeesData, setEmployeesData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Zależności: dane działu, po zmianie działu pobieramy pracowników
   useEffect(() => {
-    // Funkcja pobierająca szczegóły pracowników na podstawie ID z department.employees
     const fetchEmployees = async () => {
       try {
-        const allEmployees = await getAllEmployees(); // Pobieramy wszystkich pracowników
-        // Filtrowanie pracowników powiązanych z aktualnym działem
+        const allEmployees = await getAllEmployees();
         const filteredEmployees = allEmployees.filter(
           (employee) => employee.department === department.name
         );
-        setEmployeesData(filteredEmployees); // Ustawiamy dane pracowników w stanie
-        setLoading(false); // Zmieniamy stan ładowania
+        setEmployeesData(filteredEmployees);
+        setLoading(false);
       } catch (error) {
         console.error("Błąd podczas pobierania pracowników", error);
-        setLoading(false); // W razie błędu kończymy ładowanie
+        setLoading(false);
       }
     };
 
     if (department) {
-      fetchEmployees(); // Jeśli istnieje dział, pobieramy pracowników
+      fetchEmployees();
     }
-  }, [department]); // Zależność od zmiany działu
+  }, [department]);
 
   if (!department) {
     return (
@@ -45,7 +42,6 @@ function DepartmentDetails({ department }) {
     return <div>Ładowanie danych pracowników...</div>;
   }
 
-  // Definiujemy zakładki z różnymi treściami
   const tabs = [
     {
       name: "Informacje",

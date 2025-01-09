@@ -42,7 +42,7 @@ function Calendar({ employees, departmentOptions }) {
         <div>
           <div className="text-xl text-main-color font-bold">Nieobecności</div>
           <div className="text-sm text-secondary-color">
-            Tutaj sprawdzisz listę obecności pracowników Grupy PTWP
+            Tutaj sprawdzisz listę obecności pracowników Grupy COMPANY
           </div>
         </div>
 

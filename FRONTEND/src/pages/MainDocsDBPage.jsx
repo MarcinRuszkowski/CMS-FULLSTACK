@@ -35,7 +35,7 @@ function MainDocsDBPage() {
     <>
       <section className="flex flex-col bg-box-color p-10 gap-5 sm:mx-5 rounded-md items-center">
         <p className="font-medium text-4xl text-main-color">
-          Witaj w Bazie Wiedzy Grupy PTWP
+          Witaj w Bazie Wiedzy Grupy COMPANY
         </p>
         <p className="text-secondary-color ">
           Znajdziesz tutaj opis większości procedur, które organizują naszą
