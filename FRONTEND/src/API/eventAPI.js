@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5050/api/eventsCalendar";
+const API_URL = "https://cms-fullstack-c9vn.onrender.com/api/eventsCalendar";
 
 export const getEvents = async () => {
   try {

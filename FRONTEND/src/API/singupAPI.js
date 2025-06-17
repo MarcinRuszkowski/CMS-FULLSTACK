@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5050/api/user/register";
+const API_URL = "https://cms-fullstack-c9vn.onrender.com/api/user/register";
 
 export const registerUser = async (formData) => {
   try {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5050/api/employees";
+const API_URL = "https://cms-fullstack-c9vn.onrender.com/api/employees";
 
 export const getAllEmployees = async () => {
   try {

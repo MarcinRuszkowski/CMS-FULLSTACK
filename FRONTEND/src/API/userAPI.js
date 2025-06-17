@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5050/api/user";
+const API_URL = "https://cms-fullstack-c9vn.onrender.com/api/user";
 
 export const getUserData = async (token) => {
   try {

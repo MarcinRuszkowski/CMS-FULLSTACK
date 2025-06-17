@@ -4,7 +4,7 @@
   "description": "CMS/r [MongoDB, Express, React, NodeJS, Tailwind]",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"npm run dev --prefix BACKEND\" \"npm run dev --prefix FRONTEND\""
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,8 @@
   "workspaces": [
     "BACKEND",
     "FRONTEND"
-  ]
+  ],
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
