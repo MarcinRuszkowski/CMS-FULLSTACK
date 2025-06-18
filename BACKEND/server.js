@@ -19,10 +19,12 @@ const PORT = process.env.PORT || 5050;
 
 connectDB();
 
-// Middleware do parsowania JSON i CORS
 app.use(express.json());
-app.use(cors());
-app.use(express.static(path.join(path.resolve(), "..", "FRONTEND", "dist")));
+app.use(
+  cors({
+    // origin: "https://marcinruszkowski.vercel.app",
+  })
+);
 app.use(
   "/uploads",
   express.static(path.join(path.resolve(), "uploads/profileImages"))
@@ -36,9 +38,9 @@ app.use("/api/employees", employeeRoutes);
 app.use("/api/eventsCalendar", eventRoutes);
 app.use("/api/departments", departmentRoutes);
 
-app.get('/', (req,res)=>{
-  res.send("Server test")
-})
+app.get("/api", (req, res) => {
+  res.send("Server test");
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running`);

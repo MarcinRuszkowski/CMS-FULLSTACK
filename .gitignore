@@ -1,7 +1,4 @@
-.env
-**/node_modules/
-**/package-lock.json
-.DS_Store
+
 **/JSONData/
 
 # Logs
@@ -13,7 +10,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-**/dist/
+node_modules
+dist
 dist-ssr
 *.local
 .env

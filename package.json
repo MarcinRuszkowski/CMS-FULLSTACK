@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix BACKEND\" \"npm run dev --prefix FRONTEND\"",
-    "start": "concurrently \"npm start --prefix BACKEND\" \"npm run build --prefix FRONTEND\""
+    "start": "npm run build:frontend && npm run start:backend",
+    "build:frontend": "cd FRONTEND && npm run build",
+    "start:backend": "cd BACKEND && npm run server"
   },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "private": true,
-  "workspaces": [
-    "BACKEND",
-    "FRONTEND"
-  ],
   "dependencies": {
     "concurrently": "^9.1.2"
   }
