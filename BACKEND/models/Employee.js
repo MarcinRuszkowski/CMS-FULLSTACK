@@ -8,6 +8,7 @@ const employeeSchema = new mongoose.Schema({
   city: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   phone: [{ type: Number, required: false }],
+  slack: { type: String },
   profileImage: { type: String, default: null },
   scopeOfDuties: [
     {

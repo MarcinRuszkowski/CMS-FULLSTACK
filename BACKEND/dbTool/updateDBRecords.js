@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import Employee from "../models/Employee.js"
+import Employee from "../models/Employee.js";
 
 dotenv.config();
 
@@ -16,17 +16,9 @@ async function updateEmployeeRecords() {
     });
     console.log("Połączono z MongoDB");
 
-    const scopeOfDuties = [
-      "Nic nie robienie",
-      "Picie kawy",
-      "Rozpowiadanie plotek",
-      "obgadywanie przełożonego",
-      "Narzekanie na pensje",
-    ];
-
     const scopeOfDutiesUpdateResult = await Employee.updateMany(
       {},
-      { $set: { scopeOfDuties: scopeOfDuties } }
+      { $set: { slack: "Slack.User.ID" } }
     );
 
     console.log(

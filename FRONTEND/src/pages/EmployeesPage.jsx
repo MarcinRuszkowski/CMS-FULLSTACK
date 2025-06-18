@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getAllEmployees } from "../API/employeeAPI";
 import { getEmployeeProfileImage } from "../API/uploadsAPI";
 import EmployeesFinder from "../components/EmployeesFinder";
 import EmployeeInfo from "../components/EmployeeInfo";
+import { EmployeeDetails } from "../components/EmployeeDetails";
 
 function EmployeesPage() {
   const [employeesData, setEmployeesData] = useState([]);
@@ -17,6 +18,11 @@ function EmployeesPage() {
   const [locationOptions, setLocationOptions] = useState([]);
   const [departmentOptions, setDepartmentOptions] = useState([]);
   const [employeesImages, setEmployeesImages] = useState({});
+
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const modalRef = useRef(null);
 
   useEffect(() => {
     const fetchEmployees = async () => {
@@ -86,35 +92,77 @@ function EmployeesPage() {
     return companyMatch && locationMatch && departmentMatch && nameMatch;
   });
 
-  return (
-    <section className="mx-5 bg-box-color rounded-md flex flex-col">
-      <EmployeesFinder
-        selectedCompanyOptions={selectedCompanyOptions}
-        setSelectedCompanyOptions={setSelectedCompanyOptions}
-        selectedLocationOptions={selectedLocationOptions}
-        setSelectedLocationOptions={setSelectedLocationOptions}
-        selectedDepartmentOptions={selectedDepartmentOptions}
-        setSelectedDepartmentOptions={setSelectedDepartmentOptions}
-        companyOptions={companyOptions}
-        locationOptions={locationOptions}
-        departmentOptions={departmentOptions}
-        searchText={searchText}
-        setSearchText={setSearchText}
-      />
+  const handleEmployeeClick = (employee) => {
+    setSelectedEmployee(employee);
+    setIsModalOpen(true);
+  };
 
-      <div className="overflow-y-auto max-h-screen">
-        {filteredEmployees.map((employee) => (
-          <EmployeeInfo
-            key={employee._id}
-            name={employee.name}
-            company={employee.company}
-            job={employee.job}
-            department={employee.department}
-            city={employee.city}
-            profileImage={employeesImages[employee._id] || null}
-          />
-        ))}
+  const closeModal = () => {
+    setSelectedEmployee(null);
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+    if (isModalOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isModalOpen]);
+
+  return (
+    <section className="flex absolute md:static md:flex-row">
+      {/* <div className="md:w-[50%] w-full"></div> */}
+      <div className="mx-5 bg-box-color rounded-md flex flex-1 flex-col">
+        <EmployeesFinder
+          selectedCompanyOptions={selectedCompanyOptions}
+          setSelectedCompanyOptions={setSelectedCompanyOptions}
+          selectedLocationOptions={selectedLocationOptions}
+          setSelectedLocationOptions={setSelectedLocationOptions}
+          selectedDepartmentOptions={selectedDepartmentOptions}
+          setSelectedDepartmentOptions={setSelectedDepartmentOptions}
+          companyOptions={companyOptions}
+          locationOptions={locationOptions}
+          departmentOptions={departmentOptions}
+          searchText={searchText}
+          setSearchText={setSearchText}
+        />
+
+        <div className="overflow-y-auto max-h-screen">
+          {filteredEmployees.map((employee) => (
+            <EmployeeInfo
+              key={employee._id}
+              name={employee.name}
+              company={employee.company}
+              job={employee.job}
+              department={employee.department}
+              city={employee.city}
+              profileImage={employeesImages[employee._id] || null}
+              onClick={() => handleEmployeeClick(employee)}
+            />
+          ))}
+        </div>
       </div>
+      {isModalOpen && selectedEmployee && (
+        <div
+          ref={modalRef}
+          className="bg-box-color p-5 rounded-lg shadow-md relative w-[45%]"
+        >
+          <button
+            className="absolute top-0 left-2 text-gray-600 hover:text-gray-700 text-4xl"
+            onClick={closeModal}
+          >
+            &times;
+          </button>
+          <EmployeeDetails employee={selectedEmployee} />
+        </div>
+      )}
     </section>
   );
 }
