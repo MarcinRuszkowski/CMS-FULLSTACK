@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:5000",
+        target: "https://cms-fullstack-c9vn.onrender.com/",
         changeOrigin: true,
         secure: false,
       },

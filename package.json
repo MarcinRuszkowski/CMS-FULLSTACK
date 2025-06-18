@@ -4,7 +4,8 @@
   "description": "CMS/r [MongoDB, Express, React, NodeJS, Tailwind]",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix BACKEND\" \"npm run dev --prefix FRONTEND\""
+    "dev": "concurrently \"npm run dev --prefix BACKEND\" \"npm run dev --prefix FRONTEND\"",
+    "start": "concurrently \"npm start --prefix BACKEND\" \"npm run build --prefix FRONTEND\""
   },
   "keywords": [],
   "author": "",
