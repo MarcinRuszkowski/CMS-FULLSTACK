@@ -1,41 +1,42 @@
-import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
+import mongoose from "mongoose";
+import Employee from "../models/Employee.js"
 
 dotenv.config();
 
 const uri = process.env.MONGO_URI;
 const dbName = "CMS_DB";
-const collectionName = "employees"; // nazwa kolekcji
 
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-async function updateProfileImages() {
+async function updateEmployeeRecords() {
   try {
-    // Łączymy się z MongoDB
-    await client.connect();
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      dbName: dbName,
+    });
     console.log("Połączono z MongoDB");
 
-    const db = client.db(dbName);
-    const collection = db.collection(collectionName);
+    const scopeOfDuties = [
+      "Nic nie robienie",
+      "Picie kawy",
+      "Rozpowiadanie plotek",
+      "obgadywanie przełożonego",
+      "Narzekanie na pensje",
+    ];
 
-    const updateResult = await collection.updateMany(
-      { profileImage: { $exists: false } },
-      {
-        $set: { profileImage: null },
-      }
+    const scopeOfDutiesUpdateResult = await Employee.updateMany(
+      {},
+      { $set: { scopeOfDuties: scopeOfDuties } }
     );
 
     console.log(
-      `Zaktualizowano ${updateResult.modifiedCount} dokumentów w kolekcji ${collectionName}`
+      `Zaktualizowano ${scopeOfDutiesUpdateResult.modifiedCount} dokumentów (scopeOfDuties) w kolekcji.`
     );
   } catch (error) {
     console.error("Wystąpił błąd:", error.message);
   } finally {
-    await client.close();
+    await mongoose.disconnect();
   }
 }
 
-updateProfileImages();
+updateEmployeeRecords();

@@ -9,6 +9,11 @@ const employeeSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   phone: [{ type: Number, required: false }],
   profileImage: { type: String, default: null },
+  scopeOfDuties: [
+    {
+      type: String,
+    },
+  ],
 });
 
 const Employee = mongoose.model("Employee", employeeSchema);
