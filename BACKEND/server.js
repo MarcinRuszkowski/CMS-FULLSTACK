@@ -36,6 +36,10 @@ app.use("/api/employees", employeeRoutes);
 app.use("/api/eventsCalendar", eventRoutes);
 app.use("/api/departments", departmentRoutes);
 
+app.get('/', (req,res)=>{
+  res.send("Server test")
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
